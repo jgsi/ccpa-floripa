@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()" class="container-fluid jumbotron">
+ 
+    <header> Cadastro de Produto </header>
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.nome" name="nome" />
+    </div>
+   
+    <div class="form-group">
+      <label>Valor</label>
+      <input type="number" class="form-control" [(ngModel)]="produto.valor" name="valor" />
+    </div>
+   
+    <div class="form-group">
+      <label>Tamanho</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.tamanho" name="tamanho" />
+    </div>
+   
+    <div class="form-group">
+      <label>Peso</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.peso" name="peso" />
+    </div>
+   
+    <div class="form-group">
+      <label>Descrição</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.descricao" name="descricao" />
+    </div>
+   
+    <div class="form-group">
+      <label>Cor</label>
+      <input type="color" class="form-control" [(ngModel)]="produto.cor" name="cor" />
+    </div>
+   
+    <div class="form-group">
+      <label>Tipo</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.tipo" name="tipo" />
+    </div>
+   
+    <div class="form-group">
+        <label>Data Entrada</label>
+        <input type="date" class="form-control" [(ngModel)]="produto.dataEntrada" name="dataEntrada" />
+      </div>
+     
+      <div class="form-group">
+        <label>Data Venda</label>
+        <input type="date" class="form-control" [(ngModel)]="produto.dataVenda" name="dataVenda" />
+      </div>
+     
+       
+    <button type="submit" class="btn btn-primary container-fluid">Salvar</button>
+  </form>
