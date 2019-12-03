@@ -21,7 +21,7 @@
       <td>{{produto.peso}}</td>
       <td>{{produto.tamanho}}</td>
       <td>{{produto.tipo}}</td>
-      <td>{{produto.cor}}</td>
+      <td> <input type="color" value="{{produto.cor}}" class="form-control" disabled  /> </td>
       <td>{{produto.dataEntrada}}</td>
       <td>
         <button type="button" class="btn btn-warning" (click)="edit(produto, produto.key)">Editar</button>
