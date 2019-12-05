@@ -4,7 +4,7 @@ import { ProdutoService } from '../../produtos/shared/produto.service'
 import { ProdutoDataService } from '../../produtos/shared/produto-data.service'
 
 @Component({
-  selector: 'app-edit',
+  selector: 'app-edit-produto',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })

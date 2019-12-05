@@ -5,7 +5,7 @@ import { ProdutoDataService } from '../../produtos/shared/produto-data.service'
 import { Observable } from 'rxjs'
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-list-produto',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
