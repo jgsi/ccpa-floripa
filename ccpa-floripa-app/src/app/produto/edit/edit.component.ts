@@ -27,9 +27,9 @@ export class EditComponent implements OnInit {
         this.produto.descricao = data.produto.descricao
         this.produto.cor = data.produto.cor
         this.produto.tipo = data.produto.tipo
-        this.produto.dataEntrada = data.produto.dataEntrada
-        this.produto.dataVenda = data.produto.dataVenda
-        
+        this.produto.dataEntrada = data.produto.dataEntrada ? data.produto.dataEntrada : ''
+        this.produto.dataVenda = data.produto.dataVenda ? data.produto.dataVenda : ''
+        this.key = data.key
       }
     })
   }

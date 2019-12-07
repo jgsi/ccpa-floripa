@@ -11,12 +11,18 @@ import { environment } from '../environments/environment';
 import { EditComponent } from './produto/edit/edit.component';
 import { ListComponent } from './produto/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListUsuarioComponent } from './usuarios/list-usuario/list-usuario.component';
+import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
+import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    ListComponent
+    ListComponent,
+    ListUsuarioComponent,
+    EditUsuarioComponent,
+    TrocaSenhaComponent
   ],
   imports: [
     BrowserModule,
