@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit()" class="container-fluid jumbotron">
+ 
+    <header> Cadastro de Celulas </header>
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.nome" name="nome" />
+    </div>
+   
+    <div class="form-group">
+      <label>Numero</label>
+      <input type="number" class="form-control" [(ngModel)]="celula.numero" name="numero" />
+    </div>
+   
+    <div class="form-group">
+      <label>Lider</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.lider" name="lider" />
+    </div>
+   
+    <div class="form-group">
+      <label>Dia da Semana</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.diaSemana" name="diaSemana" />
+    </div>
+   
+    <div class="form-group">
+      <label>Horario</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.horario" name="horario" />
+    </div>
+   
+    <div class="form-group">
+      <label>Endereço</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.endereco" name="endereco" />
+    </div>
+   
+    <div class="form-group">
+      <label>Anfitrião</label>
+      <input type="text" class="form-control" [(ngModel)]="celula.anfitriao" name="anfitriao" />
+    </div>
+   
+    <div class="form-group">
+        <label>Data Inicio</label>
+        <input type="date" class="form-control" [(ngModel)]="celula.dataInicio" name="dataInicio" />
+      </div>
+    
+      
+    <button type="submit" class="btn btn-primary container-fluid">Salvar</button>
+  </form>

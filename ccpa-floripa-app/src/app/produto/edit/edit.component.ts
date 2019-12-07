@@ -44,5 +44,4 @@ export class EditComponent implements OnInit {
 
     this.produto = new Produto();
   }
-
 }

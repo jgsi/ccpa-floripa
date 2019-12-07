@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListUsuarioComponent } from './usuarios/list-usuario/list-usuario.component';
 import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
 import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.component';
+import { EditCelulaComponent } from './celulas/edit-celula/edit-celula.component';
+import { ListCelulaComponent } from './celulas/list-celula/list-celula.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.componen
     ListComponent,
     ListUsuarioComponent,
     EditUsuarioComponent,
-    TrocaSenhaComponent
+    TrocaSenhaComponent,
+    EditCelulaComponent,
+    ListCelulaComponent
   ],
   imports: [
     BrowserModule,
