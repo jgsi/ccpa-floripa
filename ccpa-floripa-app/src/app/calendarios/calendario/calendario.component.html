@@ -1,0 +1,10 @@
+<full-calendar locale="pt" id = "calendario" defaultView="dayGridMonth" (dateClick)="myDateClick($event)"  [plugins]="calendarPlugins"></full-calendar>
+<script src='fullcalendar/fullcalendar.js'></script>
+<script src='fullcalendar/locale-all.js'></script>
+<script>
+  $(function() {
+    $('#calendario').fullCalendar({
+      locale: 'pt'
+    });
+  });
+</script>

@@ -38,6 +38,12 @@
                     Escalas
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="#Calendario" class="nav-link" data-toggle="modal" data-target="#ModalCalendario">
+                    Calendario
+                </a>
+            </li>
         </ul>
         </div>
 </nav>
@@ -79,6 +85,26 @@
             <div class="modal-body">
                 <app-edit-celula></app-edit-celula>
                 <app-list-celula></app-list-celula>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="modal fade" id="ModalCalendario" tabindex="-1" role="dialog" aria-labelledby="Calendario" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="Calendario">Calendario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <app-calendario></app-calendario>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

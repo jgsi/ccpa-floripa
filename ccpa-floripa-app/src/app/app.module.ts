@@ -17,6 +17,10 @@ import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.componen
 import { EditCelulaComponent } from './celulas/edit-celula/edit-celula.component';
 import { ListCelulaComponent } from './celulas/list-celula/list-celula.component';
 
+import { CalendarioComponent } from './calendarios/calendario/calendario.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +30,8 @@ import { ListCelulaComponent } from './celulas/list-celula/list-celula.component
     EditUsuarioComponent,
     TrocaSenhaComponent,
     EditCelulaComponent,
-    ListCelulaComponent
+    ListCelulaComponent,
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { ListCelulaComponent } from './celulas/list-celula/list-celula.component
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
