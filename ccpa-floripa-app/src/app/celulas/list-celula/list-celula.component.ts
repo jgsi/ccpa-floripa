@@ -4,6 +4,7 @@ import { CelulaService } from '../celula.service';
 import { CelulaDataService } from '../celula-data.service';
 import { Observable } from 'rxjs'
 
+
 @Component({
   selector: 'app-list-celula',
   templateUrl: './list-celula.component.html',

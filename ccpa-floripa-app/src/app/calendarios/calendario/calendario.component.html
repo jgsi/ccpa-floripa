@@ -1,4 +1,17 @@
-<full-calendar locale="pt" id = "calendario" defaultView="dayGridMonth" (dateClick)="myDateClick($event)"  [plugins]="calendarPlugins"></full-calendar>
+<full-calendar 
+  locale = 'pt'
+  id = "calendario" 
+  #calendar 
+  defaultView="dayGridMonth" 
+  (dateClick)="handleDateClick($event)"  
+  [plugins]="calendarPlugins"
+  [events]="calendarEvents"
+  [header]="{
+    left: 'prev,next',
+    center: 'title',
+    right: 'timeGridWeek,timeGridDay,listWeek'
+  }"
+  ></full-calendar>
 <script src='fullcalendar/fullcalendar.js'></script>
 <script src='fullcalendar/locale-all.js'></script>
 <script>

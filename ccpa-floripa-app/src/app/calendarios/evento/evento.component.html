@@ -1,0 +1,35 @@
+
+
+<div>Add um novo evento</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Nome</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="evento.title" placeholder="Titulo" aria-label="Titulo" aria-describedby="basic-addon1">
+  </div>
+  
+  <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Data de Inicio</span>
+        </div>
+      <input type="date" class="form-control" [(ngModel)]="evento.start" name="start" />
+    </div>
+    
+    <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Data de Termino</span>
+            </div>
+        <input type="date" class="form-control" [(ngModel)]="evento.end" name="end" />
+    </div>
+    
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Descricao</span>
+        </div>
+        <textarea class="form-control" [(ngModel)]="evento.Descricao" aria-label="Com textarea"></textarea>
+        
+        <button type="submit" class="btn btn-primary container-fluid">Salvar</button>
+
+  </div>
+

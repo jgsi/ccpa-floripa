@@ -20,6 +20,7 @@ import { ListCelulaComponent } from './celulas/list-celula/list-celula.component
 import { CalendarioComponent } from './calendarios/calendario/calendario.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { EventoComponent } from './calendarios/evento/evento.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     TrocaSenhaComponent,
     EditCelulaComponent,
     ListCelulaComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    EventoComponent
   ],
   imports: [
     BrowserModule,

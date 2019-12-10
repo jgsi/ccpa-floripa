@@ -1,6 +1,12 @@
-import { Component, OnInit,  Input} from '@angular/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { Component, OnInit,  ViewChild} from '@angular/core';
 import ptLocale from '@fullcalendar/core/locales/pt';
+import { FullCalendarComponent } from '@fullcalendar/angular'
+import { EventInput } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
+import { CalendarioService } from '../calendario.service';
+import { CalendarioDataService } from '../calendario-data.service';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-calendario',
@@ -10,19 +16,34 @@ import ptLocale from '@fullcalendar/core/locales/pt';
 
 
 export class CalendarioComponent implements OnInit {
-   
-  calendarPlugins = [dayGridPlugin];
   
-  myDateClick(arg){
-    alert(arg.dateStr);
-    
-  }
-
-  constructor() {
+  eventos : Observable<any>
+  
+  constructor(private calendarioService : CalendarioService,private calendarioDataService : CalendarioService) {
   }
   
   ngOnInit() {
-     
+    this.eventos = this.calendarioService.getAll()
   }
+
+  calendarVisible = true 
+  calendarPlugins = [dayGridPlugin, interactionPlugin]
+  calendarEvents: EventInput[] = [];
+  
+
+  toggleVisible() {
+    this.calendarVisible = !this.calendarVisible;
+  }
+
+  handleDateClick(arg) {
+    if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
+      this.calendarEvents = this.calendarEvents.concat({ 
+        title: 'Evento',
+        start: arg.date,
+        allDay: arg.allDay
+      })
+    }
+  }
+  
   
 }

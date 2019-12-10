@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database'
-import { Celula} from './celula'
+import { Evento} from './evento'
 import {map } from 'rxjs/operators'
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class CelulaService {
-
+export class CalendarioService {
+  
+  
   constructor(private db: AngularFireDatabase) { }
 
-  insert(celula : Celula){
-    this.db.list('celula').push(celula)
+  insert(evento : Evento){
+    this.db.list('evento').push(evento)
     .then((result : any ) =>{
       console.log(result.key);
     })
   }
 
-  update(celula : Celula, key : string){
-    this.db.list('celula').update(key, celula)
+  update(evento : Evento, key : string){
+    this.db.list('evento').update(key, evento)
     .catch((error : any) => {
       console.log(error)
     })
   }
 
   getAll(){
-    return this.db.list('celula').snapshotChanges().pipe(
+    return this.db.list('evento').snapshotChanges().pipe(
       map(changes => {
         return changes.map(c =>({ key : c.payload.key, ...c.payload.val()}))
       })
@@ -34,7 +34,7 @@ export class CelulaService {
   }
 
   delete(key : String){
-    this.db.object(`celula/${key}`).remove()
+    this.db.object(`evento/${key}`).remove()
   }
 
 }
