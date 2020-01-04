@@ -2,6 +2,15 @@
   <firebase-ui></firebase-ui>
 
 </div>
+
+<nav>
+  <a routerLink="/teste" routerLinkActive="active">Teste</a>
+  <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
+  <a routerLink="/admin" routerLinkActive="active">Admin</a>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+</nav>
+
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <!-- Conteúdo do navbar -->
         <a class="navbar-brand">CCPA Floripa</a>
@@ -109,7 +118,7 @@
             </div>
             <div class="modal-body">
                 <app-calendario></app-calendario>
-                <app-evento></app-evento>
+               
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -117,4 +126,8 @@
 
    
 
-<router-outlet> </router-outlet>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
+<router-outlet name="popup"></router-outlet>
+

@@ -5,10 +5,10 @@ import { ProdutoDataService } from '../../produtos/shared/produto-data.service'
 
 @Component({
   selector: 'app-edit-produto',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  templateUrl: './edit-produto.component.html',
+  styleUrls: ['./edit-produto.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditProdutoComponent implements OnInit {
 
   produto : Produto
   key : string = ''

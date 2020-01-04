@@ -6,10 +6,10 @@ import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-list-produto',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  templateUrl: './list-produto.component.html',
+  styleUrls: ['./list-produto.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListProdutoComponent implements OnInit {
   produtos : Observable<any>
 
   constructor(private produtoService : ProdutoService, private produtoDataService : ProdutoDataService) { }
