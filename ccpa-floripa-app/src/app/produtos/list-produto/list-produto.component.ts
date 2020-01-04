@@ -26,4 +26,8 @@ export class ListProdutoComponent implements OnInit {
     this.produtoDataService.changeProduto(produto, key)
   }
 
+  new(){
+    this.produtoDataService.changeProduto(new Produto(), '')
+  }
+
 }

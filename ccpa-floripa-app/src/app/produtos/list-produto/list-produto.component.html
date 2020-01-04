@@ -24,9 +24,14 @@
         <td> <input type="color" value="{{produto.cor}}" class="form-control" disabled  /> </td>
         <td>{{produto.dataEntrada}}</td>
         <td>
-          <button type="button" class="btn btn-warning" (click)="edit(produto, produto.key)">Editar</button>
-          <button type="button" class="btn btn-danger ml-2" (click)="delete(produto.key)">Excluir</button>
+          <a class="btn btn-warning" (click)="edit(produto, produto.key)"  [routerLink]="['/produto', produto.nome]" routerLinkActive="active" >Editar</a> 
+          <!--   -->
+          <a class="btn btn-danger ml-2" (click)="delete(produto.key)">Excluir</a>
+          <a>produto.key = {{produto.key}} </a>
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <th><a class="btn btn-warning" (click)="new()" routerLink="/produto/new" routerLinkActive="active" >Novo Produto</a></th>
+    </tfoot>
   </table>

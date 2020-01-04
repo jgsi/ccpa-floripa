@@ -1,15 +1,13 @@
-<div class="container-fluid jumbotron">
-  <firebase-ui></firebase-ui>
-
+<div >
+  <!-- [@routeAnimation]="getAnimationData(routerOutlet)" -->
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
 
-<nav>
-  <a routerLink="/teste" routerLinkActive="active">Teste</a>
-  <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-</nav>
+<!-- <div class="container-fluid jumbotron">
+  <firebase-ui></firebase-ui>
+
+</div> -->
+
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <!-- Conteúdo do navbar -->
@@ -22,7 +20,9 @@
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 
-                <a href="#ProdutosBazar" class="nav-link" data-toggle="modal" data-target="#ModalLongoExemplo">
+                <a href="#ProdutosBazar" class="nav-link" 
+                routerLink="/produto" routerLinkActive="active"
+                >
                     Controle de Produtos Bazar
                 </a>
             </li>
@@ -125,9 +125,4 @@
             </div>
 
    
-
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
-<router-outlet name="popup"></router-outlet>
 
