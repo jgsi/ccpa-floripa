@@ -14,19 +14,20 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 
 import { environment } from '../environments/environment';
-import { EditComponent } from './produto/edit/edit.component';
-import { ListComponent } from './produto/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListUsuarioComponent } from './usuarios/list-usuario/list-usuario.component';
 import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
 import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.component';
 import { EditCelulaComponent } from './celulas/edit-celula/edit-celula.component';
 import { ListCelulaComponent } from './celulas/list-celula/list-celula.component';
+import { EditProdutoComponent } from './produtos/edit-produto/edit-produto.component';
+import { ListProdutoComponent } from './produtos/list-produto/list-produto.component';
 
 import { CalendarioComponent } from './calendarios/calendario/calendario.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoComponent } from './calendarios/evento/evento.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -61,15 +62,16 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 @NgModule({
   declarations: [
     AppComponent,
-    EditComponent,
-    ListComponent,
     ListUsuarioComponent,
     EditUsuarioComponent,
     TrocaSenhaComponent,
     EditCelulaComponent,
     ListCelulaComponent,
     CalendarioComponent,
-    EventoComponent
+    EventoComponent,
+    ListProdutoComponent,
+    EditProdutoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
