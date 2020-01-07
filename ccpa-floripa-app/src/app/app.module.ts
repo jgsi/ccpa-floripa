@@ -28,6 +28,8 @@ import { CalendarioComponent } from './calendarios/calendario/calendario.compone
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoComponent } from './calendarios/evento/evento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { MapComponent } from './home/map/map.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -71,7 +73,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     EventoComponent,
     ListProdutoComponent,
     EditProdutoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

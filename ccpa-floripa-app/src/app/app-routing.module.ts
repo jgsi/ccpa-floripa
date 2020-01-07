@@ -5,6 +5,7 @@ import { EditCelulaComponent } from './celulas/edit-celula/edit-celula.component
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ListProdutoComponent } from './produtos/list-produto/list-produto.component';
 import { ListCelulaComponent } from './celulas/list-celula/list-celula.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'celulas' , component: ListCelulaComponent},
   { path: 'celula/new' , component: EditCelulaComponent},
   { path: 'celula/:id' , component: EditCelulaComponent},
+  { path: 'home' , component: HomeComponent},
   { path: '' , 
-  redirectTo: 'celulas',
+  redirectTo: 'home',
   pathMatch: 'full'},
   { path: '**' , component: PageNotFoundComponent }
 ];

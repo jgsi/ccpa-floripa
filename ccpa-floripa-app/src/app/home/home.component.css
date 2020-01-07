@@ -1,0 +1,17 @@
+
+.bannerimage {
+        width: 100%;
+        background-image: url("img/ccpafloripabanner.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 450px;
+        background-position: center;
+        
+      }
+.end-area{
+    background-color: rgba(7, 7, 7, 0.521);
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
