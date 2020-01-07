@@ -3,13 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { EditProdutoComponent } from './produtos/edit-produto/edit-produto.component';
 import { EditCelulaComponent } from './celulas/edit-celula/edit-celula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ListProdutoComponent } from './produtos/list-produto/list-produto.component';
+import { ListCelulaComponent } from './celulas/list-celula/list-celula.component';
 
 
 const routes: Routes = [
-  { path: 'produto/edit' , component: EditProdutoComponent},
-  { path: 'celula/edit' , component: EditCelulaComponent},
+  { path: 'produto/new' , component: EditProdutoComponent},
+  { path: 'produto/:id' , component: EditProdutoComponent},
+  { path: 'produtos' , component: ListProdutoComponent},
+  { path: 'celulas' , component: ListCelulaComponent},
+  { path: 'celula/new' , component: EditCelulaComponent},
+  { path: 'celula/:id' , component: EditCelulaComponent},
   { path: '' , 
-  redirectTo: 'celula/list',
+  redirectTo: 'celulas',
   pathMatch: 'full'},
   { path: '**' , component: PageNotFoundComponent }
 ];

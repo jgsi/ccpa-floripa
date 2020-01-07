@@ -1,65 +1,71 @@
-<div class="container-fluid jumbotron">
-  <firebase-ui></firebase-ui>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <!-- Conteúdo do navbar -->
+  <a class="navbar-brand">CCPA Floripa</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+      
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">        
+      <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          
+          <a href="#ProdutosBazar" class="nav-link" 
+          routerLink="/produtos" routerLinkActive="active"
+          >
+              Controle de Produtos Bazar
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#Membros" class="nav-link" data-toggle="modal" data-target="#ModalMembros">
+              Membros
+          </a>
+      </li>
+      <li class="nav-item">
+        <!-- data-toggle="modal" data-target="#ModalCelulas" -->
+          <a href="#Celulas" class="nav-link" 
+            routerLink="/celulas" routerLinkActive="active"
+          >
+              Células
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#Lancamentos" class="nav-link" data-toggle="modal" data-target="#ModalLancamentos">
+              Lançamentos
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#Departamentos" class="nav-link" data-toggle="modal" data-target="#ModalDepartamentos">
+                  Departamentos
+              </a>
+      </li>
+      <li class="nav-item">
+          <a href="#Escalas" class="nav-link" data-toggle="modal" data-target="#ModalEscalas">
+              Escalas
+          </a>
+      </li>
 
+      <li class="nav-item">
+          <a href="#Calendario" class="nav-link" data-toggle="modal" data-target="#ModalCalendario">
+              Calendario
+          </a>
+      </li>
+  </ul>
+  </div>
+</nav>
+
+
+
+<div >
+  <!-- [@routeAnimation]="getAnimationData(routerOutlet)" -->
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
 
-<nav>
-  <a routerLink="/teste" routerLinkActive="active">Teste</a>
-  <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-</nav>
+<!-- <div class="container-fluid jumbotron">
+  <firebase-ui></firebase-ui>
 
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <!-- Conteúdo do navbar -->
-        <a class="navbar-brand">CCPA Floripa</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">        
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                
-                <a href="#ProdutosBazar" class="nav-link" data-toggle="modal" data-target="#ModalLongoExemplo">
-                    Controle de Produtos Bazar
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#Membros" class="nav-link" data-toggle="modal" data-target="#ModalMembros">
-                    Membros
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#Celulas" class="nav-link" data-toggle="modal" data-target="#ModalCelulas">
-                    Células
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#Lancamentos" class="nav-link" data-toggle="modal" data-target="#ModalLancamentos">
-                    Lançamentos
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#Departamentos" class="nav-link" data-toggle="modal" data-target="#ModalDepartamentos">
-                        Departamentos
-                    </a>
-            </li>
-            <li class="nav-item">
-                <a href="#Escalas" class="nav-link" data-toggle="modal" data-target="#ModalEscalas">
-                    Escalas
-                </a>
-            </li>
+</div> -->
 
-            <li class="nav-item">
-                <a href="#Calendario" class="nav-link" data-toggle="modal" data-target="#ModalCalendario">
-                    Calendario
-                </a>
-            </li>
-        </ul>
-        </div>
-</nav>
+
 
       
       <!-- Modal -->
@@ -123,11 +129,4 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
-
-   
-
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
-<router-outlet name="popup"></router-outlet>
 

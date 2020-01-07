@@ -1,5 +1,4 @@
 export class Produto {
-
     nome: string = ''
     valor: number = 0
     tamanho: string = ''

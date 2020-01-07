@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../produtos/shared/produto'
 import { ProdutoService } from '../../produtos/shared/produto.service'
 import { ProdutoDataService } from '../../produtos/shared/produto-data.service'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-produto',
@@ -11,9 +12,10 @@ import { ProdutoDataService } from '../../produtos/shared/produto-data.service'
 export class EditProdutoComponent implements OnInit {
 
   produto : Produto
-  key : string = ''
+  key : string
 
-  constructor(private produtoService : ProdutoService, private produtoDataService : ProdutoDataService) { }
+  constructor(private produtoService : ProdutoService, private produtoDataService : ProdutoDataService,
+    private router : Router) { }
 
   ngOnInit() {
     this.produto = new Produto()
@@ -43,5 +45,6 @@ export class EditProdutoComponent implements OnInit {
     }
 
     this.produto = new Produto();
+    this.router.navigate(['produtos'])
   }
 }
