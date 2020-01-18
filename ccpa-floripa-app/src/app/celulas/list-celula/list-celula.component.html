@@ -24,10 +24,15 @@
         <td>{{celula.anfitriao}}</td>
         <td>{{celula.dataInicio}}</td>
         <td>
-          <button type="button" class="btn btn-warning" (click)="edit(celula, celula.key)">Editar</button>
-          <button type="button" class="btn btn-danger ml-2" (click)="delete(celula.key)">Excluir</button>
+          <a class="btn btn-warning" (click)="edit(celula, celula.key)"  [routerLink]="['/celula', celula.nome]" routerLinkActive="active" >Editar</a> 
+          <a class="btn btn-danger ml-2" (click)="delete(celula.key)">Excluir</a>
+          <!-- <a>celula.key = {{celula.key}} </a> -->
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <th colspan="2"><a class="btn btn-warning" (click)="new()" routerLink="/celula/new" routerLinkActive="active" >Cadastrar Nova Célula</a></th>
+    </tfoot>
+
   </table>
 </div>

@@ -41,6 +41,8 @@
         <input type="date" class="form-control" [(ngModel)]="celula.dataInicio" name="dataInicio" />
       </div>
     
-      
-    <button type="submit" class="btn btn-primary container-fluid">Salvar</button>
+      <footer class="text-center">      
+        <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+        <button type="button" (click)="list()" class="btn btn-danger btn-lg">Cancelar</button>
+      </footer>  
   </form>

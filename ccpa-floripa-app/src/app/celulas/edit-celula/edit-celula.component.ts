@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Celula } from '../celula';
 import { CelulaService } from '../celula.service';
 import { CelulaDataService } from '../celula-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-celula',
@@ -13,7 +14,8 @@ export class EditCelulaComponent implements OnInit {
   celula : Celula
   key : string = ''
 
-  constructor(private celulaService : CelulaService, private celulaDataService : CelulaDataService) { }
+  constructor(private celulaService : CelulaService, private celulaDataService : CelulaDataService,
+    private router : Router) { }
 
   ngOnInit() {
     this.celula = new Celula()
@@ -40,6 +42,11 @@ export class EditCelulaComponent implements OnInit {
         this.celulaService.insert(this.celula)
       }
 
-      this.celula = new Celula();
+      this.celula = new Celula()
+      this.list()
+    }
+
+    list(){
+      this.router.navigate(['celulas'])
     }
   }

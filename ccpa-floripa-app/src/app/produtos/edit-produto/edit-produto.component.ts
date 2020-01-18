@@ -44,7 +44,11 @@ export class EditProdutoComponent implements OnInit {
       this.produtoService.insert(this.produto)      
     }
 
-    this.produto = new Produto();
+    this.produto = new Produto()
+    this.list()
+  }
+
+  list(){
     this.router.navigate(['produtos'])
   }
 }

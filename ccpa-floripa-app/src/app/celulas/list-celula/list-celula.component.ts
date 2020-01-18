@@ -28,4 +28,8 @@ export class ListCelulaComponent implements OnInit {
     this.celulaDataService.changeCelula(celula,key)
   }
 
+  new(){
+    this.celulaDataService.changeCelula(new Celula(), '')
+  }
+
 }

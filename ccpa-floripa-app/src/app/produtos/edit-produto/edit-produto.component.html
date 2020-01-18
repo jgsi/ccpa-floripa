@@ -1,6 +1,6 @@
-<form (ngSubmit)="onSubmit()" class="container-fluid jumbotron">
+<form (ngSubmit)="onSubmit()" class="container jumbotron">
  
-    <header> Cadastro de Produto </header>
+    <header class="display-4 text-center" > Cadastro de Produto </header>
     <div class="form-group">
       <label>Nome</label>
       <input type="text" class="form-control" [(ngModel)]="produto.nome" name="nome" />
@@ -47,5 +47,8 @@
       </div>
      
       <!-- <input type="hidden" [(ngModel)]="produto.key" name="key")] /> -->
-    <button type="submit" class="btn btn-primary container-fluid">Salvar</button>
+      <footer class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+        <button type="button" (click)="list()" class="btn btn-danger btn-lg">Cancelar</button>
+      </footer>
   </form>
