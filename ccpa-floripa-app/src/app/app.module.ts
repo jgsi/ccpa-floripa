@@ -30,6 +30,7 @@ import { EventoComponent } from './calendarios/evento/evento.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './home/map/map.component';
+import { CarrosselComponent } from './home/carrossel/carrossel.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -75,7 +76,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     EditProdutoComponent,
     PageNotFoundComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    CarrosselComponent
   ],
   imports: [
     BrowserModule,
