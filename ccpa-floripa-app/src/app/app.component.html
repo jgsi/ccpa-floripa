@@ -17,7 +17,8 @@
           </a>
       </li>
       <li class="nav-item">
-          <a href="#Membros" class="nav-link" data-toggle="modal" data-target="#ModalMembros">
+          <a href="#Membros" class="nav-link" 
+          routerLink="/membros" routerLinkActive="active">
               Membros
           </a>
       </li>
@@ -44,12 +45,12 @@
               Escalas
           </a>
       </li>
-
+<!-- 
       <li class="nav-item">
           <a href="#Calendario" class="nav-link" data-toggle="modal" data-target="#ModalCalendario">
               Calendario
           </a>
-      </li>
+      </li> -->
   </ul>
   </div>
 </nav>
@@ -124,10 +125,12 @@
               </button>
             </div>
             <div class="modal-body">
-                <app-calendario></app-calendario>
+                <!--  <app-calendario></app-calendario> --> 
                
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
+
+            
 

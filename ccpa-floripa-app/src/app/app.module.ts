@@ -31,6 +31,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './home/map/map.component';
 import { CarrosselComponent } from './home/carrossel/carrossel.component';
+import { MembrosComponent } from './membros/membros.component';
+import { EditMembroComponent } from './membros/edit-membro/edit-membro.component';
+import { ListMembroComponent } from './membros/list-membro/list-membro.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -77,7 +80,10 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     PageNotFoundComponent,
     HomeComponent,
     MapComponent,
-    CarrosselComponent
+    CarrosselComponent,
+    MembrosComponent,
+    EditMembroComponent,
+    ListMembroComponent
   ],
   imports: [
     BrowserModule,
