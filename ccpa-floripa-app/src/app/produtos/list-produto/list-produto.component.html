@@ -9,6 +9,7 @@
         <th>Tipo</th>
         <th>Cor</th>
         <th>Data Entrada</th>
+        <th>Data Venda</th>
         <th>Opções</th>
   
       </tr>
@@ -22,7 +23,8 @@
         <td>{{produto.tamanho}}</td>
         <td>{{produto.tipo}}</td>
         <td> <input type="color" value="{{produto.cor}}" class="form-control" disabled  /> </td>
-        <td>{{produto.dataEntrada}}</td>
+        <td>{{produto.dataEntrada | date: 'dd/MM/yyyy' }}</td>
+        <td>{{produto.dataVenda | date: 'dd/MM/yyyy' }}</td>
         <td>
           <a class="btn btn-warning" (click)="edit(produto, produto.key)"  [routerLink]="['/produto', produto.nome]" routerLinkActive="active" >Editar</a> 
           <!--   -->

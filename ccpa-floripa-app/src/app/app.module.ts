@@ -35,6 +35,11 @@ import { MembrosComponent } from './membros/membros.component';
 import { EditMembroComponent } from './membros/edit-membro/edit-membro.component';
 import { ListMembroComponent } from './membros/list-membro/list-membro.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeBr  from '@angular/common/locales/pt';
+
+registerLocaleData(localeBr);
+
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
@@ -99,4 +104,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

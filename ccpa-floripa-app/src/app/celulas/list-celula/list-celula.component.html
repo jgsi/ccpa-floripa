@@ -22,7 +22,7 @@
         <td>{{celula.horario}}</td>
         <td>{{celula.endereco}}</td>
         <td>{{celula.anfitriao}}</td>
-        <td>{{celula.dataInicio}}</td>
+        <td>{{celula.dataInicio | date: 'dd/MM/yyyy'}}</td>
         <td>
           <a class="btn btn-warning bt-md" (click)="edit(celula, celula.key)"  [routerLink]="['/celula', celula.nome]" routerLinkActive="active" >Editar</a> 
           <a class="btn btn-danger bt-md" (click)="delete(celula.key)">Excluir</a>
