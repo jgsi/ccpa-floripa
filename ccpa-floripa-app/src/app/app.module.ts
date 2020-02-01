@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule }              from './auth/auth.module';
 import { AppComponent } from './app.component';
 
 import { FirebaseUIModule } from 'firebaseui-angular';
@@ -91,6 +92,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     ListMembroComponent
   ],
   imports: [
+    AuthModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
