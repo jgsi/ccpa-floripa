@@ -43,13 +43,18 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
+      // nome do usuário logado
+      console.log(authResult.user.displayName)
+      // email do usuário logado
+      console.log(authResult.user.email)
+      //window.alert(JSON.stringify(authResult))
       return true;
 
     },
     uiShown: function() {
       // The widget is rendered.
       // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
+      //document.getElementById('loader').style.display = 'none';
     }
   },
   signInSuccessUrl :  '/home' //'<url-to-redirect-to-on-success>',
