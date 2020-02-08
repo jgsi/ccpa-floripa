@@ -14,7 +14,9 @@ export const environment = {
     appId: "1:994573777688:web:a44142b6e109220f69fc6d",
     measurementId: "G-66VKL2Q54R"
   }
+  
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
