@@ -10,6 +10,12 @@ import { ListCelulaComponent } from './celulas/list-celula/list-celula.component
 import { HomeComponent } from './home/home.component';
 import { ListMembroComponent } from './membros/list-membro/list-membro.component';
 import { EditMembroComponent } from './membros/edit-membro/edit-membro.component';
+import { ListUsuarioComponent } from './usuarios/list-usuario/list-usuario.component';
+import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
+import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.component';
+import { MapComponent } from './home/map/map.component';
+import { CarrosselComponent } from './home/carrossel/carrossel.component';
+import { MembrosComponent } from './membros/membros.component';
 
 
 const routes: Routes = [

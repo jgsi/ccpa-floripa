@@ -8,6 +8,8 @@ import { tap, delay } from 'rxjs/operators';
 })
 export class AuthService {
   isLoggedIn = false;
+  nomeUsuarioLogado = ''
+  emailUsuarioLogado = ''
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;

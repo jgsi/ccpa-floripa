@@ -1,44 +1,52 @@
-<form (ngSubmit)="onSubmit()" class="container jumbotron ">
+<form (ngSubmit)="onSubmit()" class="container jumbotron " ngNativeValidate>
  
     <header class="display-4 text-center" > Cadastro de Celulas </header>
     <div class="form-group">
       <label>Nome</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.nome" name="nome" />
+      <input type="text" class="form-control" [(ngModel)]="celula.nome" name="nome"
+        placeholder="Nome da célula" required/>
     </div>
    
     <div class="form-group">
       <label>Numero</label>
-      <input type="number" class="form-control" [(ngModel)]="celula.numero" name="numero" />
+      <input type="number" class="form-control" [(ngModel)]="celula.numero" name="numero" 
+      placeholder="Entre com o Número da célula" required/>
     </div>
    
     <div class="form-group">
       <label>Lider</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.lider" name="lider" />
+      <input type="text" class="form-control" [(ngModel)]="celula.lider" name="lider" 
+      placeholder="Entre com o nome do lider da célula" required/>
     </div>
    
     <div class="form-group">
       <label>Dia da Semana</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.diaSemana" name="diaSemana" />
+      <input type="text" class="form-control" [(ngModel)]="celula.diaSemana" name="diaSemana"
+      placeholder="Entre com o dia da semana que acontece a célula"  required/>
     </div>
    
     <div class="form-group">
       <label>Horario</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.horario" name="horario" />
+      <input type="text" class="form-control" [(ngModel)]="celula.horario" name="horario"
+      placeholder="Entre com o Horário da célula"  required/>
     </div>
    
     <div class="form-group">
       <label>Endereço</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.endereco" name="endereco" />
+      <input type="text" class="form-control" [(ngModel)]="celula.endereco" name="endereco" 
+      placeholder="Entre com o Endereço da célula" required/>
     </div>
    
     <div class="form-group">
       <label>Anfitrião</label>
-      <input type="text" class="form-control" [(ngModel)]="celula.anfitriao" name="anfitriao" />
+      <input type="text" class="form-control" [(ngModel)]="celula.anfitriao" name="anfitriao"
+      placeholder="Entre com o nome do Anfitrião da célula" required />
     </div>
    
     <div class="form-group">
         <label>Data Inicio</label>
-        <input type="date" class="form-control" [(ngModel)]="celula.dataInicio" name="dataInicio" />
+        <input type="date" class="form-control" [(ngModel)]="celula.dataInicio" name="dataInicio" 
+        placeholder="Entre com a data de abertura da célula" required />
       </div>
     
       <footer class="text-center">      

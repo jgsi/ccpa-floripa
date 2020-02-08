@@ -48,6 +48,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       // email do usuário logado
       console.log(authResult.user.email)
       //window.alert(JSON.stringify(authResult))
+      
       return true;
 
     },
