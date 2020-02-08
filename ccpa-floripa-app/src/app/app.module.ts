@@ -7,9 +7,10 @@ import { AuthModule }              from './auth/auth.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
-import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorage, AngularFireStorageModule } from "@angular/fire/storage";
 
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +36,7 @@ import { ListMembroComponent } from './membros/list-membro/list-membro.component
 
 import { registerLocaleData } from '@angular/common';
 import localeBr  from '@angular/common/locales/pt';
+import { GaleriasComponent } from './galerias/galerias.component';
 
 registerLocaleData(localeBr);
 
@@ -56,7 +58,8 @@ registerLocaleData(localeBr);
     CarrosselComponent,
     MembrosComponent,
     EditMembroComponent,
-    ListMembroComponent
+    ListMembroComponent,
+    GaleriasComponent
   ],
   imports: [
     AuthModule,
@@ -69,6 +72,8 @@ registerLocaleData(localeBr);
     BrowserAnimationsModule,
     FullCalendarModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
