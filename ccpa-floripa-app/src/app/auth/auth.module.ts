@@ -48,7 +48,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       // email do usuário logado
       console.log(authResult.user.email)
       //window.alert(JSON.stringify(authResult))
-      
+
       return true;
 
     },
@@ -66,8 +66,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   imports: [
     CommonModule,
     FormsModule,
-    AuthRoutingModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    AuthRoutingModule
+    // FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
   declarations: [
     LoginComponent
