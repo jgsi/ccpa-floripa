@@ -11,23 +11,21 @@ import { JsonPipe } from '@angular/common';
   styleUrls: ['./galerias.component.css']
 })
 export class GaleriasComponent implements OnInit {
-  ref : AngularFireStorageReference;
-  task: AngularFireUploadTask;
 
- // imagens : Observable<any>;
+  imagens : Observable<any>;
   
-  constructor(private afStorage: AngularFireStorage , private imageService : ImagemService) { }
+  constructor(private imageService : ImagemService) { }
 
   ngOnInit() {
-    //this.imagens = this.imageService.getAll()
-    // this.imageService.getAll()
-    console.log(this.imageService.getAll())
+    // this.imagens = this.imageService.getAll()
   }
 
   enviar(evento){
-    const id = Math.random().toString(32).substring(2)
-    this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(evento.target.files[0])
+    this.imageService.upload(evento)
+  }
+
+  progresso(){
+    this.imageService.getUploadProgress()
   }
 
 }

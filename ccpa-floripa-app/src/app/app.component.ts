@@ -13,6 +13,10 @@ export class AppComponent {
   constructor(private authService : AuthService){  }
 
   usuarioLogado(){
-    return this.authService.isLoggedIn ? 'Logado como: '+ this.authService.userData.displayName : ''
+    try{
+      return this.authService.isLoggedIn ? 'Logado como: '+ this.authService.userData.displayName : ''
+    } catch (error){
+     // console.error(error)
+    }
   }
 }
