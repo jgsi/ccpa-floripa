@@ -22,8 +22,8 @@
             <td>{{membro.endereco}}</td>
             <td>{{membro.sexo}}</td>
             <td>
-              <a class="btn btn-warning" (click)="edit(membro, membro.key)"  [routerLink]="['/membro', membro.nome]" routerLinkActive="active" >Editar</a> 
-              <a class="btn btn-danger ml-2" (click)="delete(membro.key)">Excluir</a>
+                <a class="btn btn-warning bt-md" (click)="edit(membro, membro.key)"  [routerLink]="['/membro', membro.nome]" routerLinkActive="active" >Editar</a> 
+                <a class="btn btn-danger  bt-md"  (click)="delete(membro.key)">Excluir</a>
               <!-- <a>membro.key = {{membro.key}} </a> -->
             </td>
           </tr>
