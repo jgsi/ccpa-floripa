@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage ,  AngularFireStorageReference  } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -7,10 +8,19 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 
 export class ImagemService {
+  
+  constructor(private storage: AngularFireStorage, private ref : AngularFireStorageReference) { }
 
-  constructor(private storage: AngularFireStorage) { }
+    getAll() {
+      //console.log(JSON.stringify(this.ref.child('files/uid')))
+      //return this.ref.child('files/uid');
+   
+    }
+
     upload(event) {
       this.storage.upload('gs://ccpa-floripa.appspot.com/Home/', event.target.files[0]);  
     }
+
+
 
 }

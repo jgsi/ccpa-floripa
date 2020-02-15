@@ -13,7 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireStorage, AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+//import { AngularFireStorageModule} from 'angularfire2/storage';
 
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
