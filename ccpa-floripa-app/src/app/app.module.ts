@@ -40,6 +40,7 @@ import { ListMembroComponent } from './membros/list-membro/list-membro.component
 import { registerLocaleData } from '@angular/common';
 import localeBr  from '@angular/common/locales/pt';
 import { GaleriasComponent } from './galerias/galerias.component';
+import { AuthGuard } from './auth/auth.guard';
 
 registerLocaleData(localeBr);
 
@@ -78,7 +79,7 @@ registerLocaleData(localeBr);
     AngularFirestoreModule,
     AngularFireStorageModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

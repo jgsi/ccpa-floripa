@@ -16,19 +16,20 @@ import { TrocaSenhaComponent } from './usuarios/troca-senha/troca-senha.componen
 import { MapComponent } from './home/map/map.component';
 import { CarrosselComponent } from './home/carrossel/carrossel.component';
 import { MembrosComponent } from './membros/membros.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'produto/new' , component: EditProdutoComponent},
-  { path: 'produto/:id' , component: EditProdutoComponent},
-  { path: 'produtos' , component: ListProdutoComponent},
-  { path: 'celulas' , component: ListCelulaComponent},
-  { path: 'celula/new' , component: EditCelulaComponent},
-  { path: 'celula/:id' , component: EditCelulaComponent},
+  { path: 'produto/new' , component: EditProdutoComponent, canActivate:[AuthGuard]},
+  { path: 'produto/:id' , component: EditProdutoComponent, canActivate:[AuthGuard]},
+  { path: 'produtos' , component: ListProdutoComponent, canActivate:[AuthGuard]},
+  { path: 'celulas' , component: ListCelulaComponent, canActivate:[AuthGuard]},
+  { path: 'celula/new' , component: EditCelulaComponent, canActivate:[AuthGuard]},
+  { path: 'celula/:id' , component: EditCelulaComponent, canActivate:[AuthGuard]},
   { path: 'home' , component: HomeComponent},
-  { path: 'membros' , component: ListMembroComponent},
-  { path: 'membro/new' , component: EditMembroComponent},
-  { path: 'membro/:id' , component: EditMembroComponent},
+  { path: 'membros' , component: ListMembroComponent, canActivate:[AuthGuard]},
+  { path: 'membro/new' , component: EditMembroComponent, canActivate:[AuthGuard]},
+  { path: 'membro/:id' , component: EditMembroComponent, canActivate:[AuthGuard]},
   { path: '' , 
   redirectTo: 'home',
   pathMatch: 'full'},

@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
   <!-- Conteúdo do navbar -->
-  <a href="#Home" class="navbar-brand" routerLink="/home">CCPA Floripa</a>
+  <a href="#Home" class="navbar-brand" routerLink="/home" routerLinkActive="active" >CCPA Floripa</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
       
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">        
       <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
           
           <a href="#ProdutosBazar" class="nav-link" 
           routerLink="/produtos" routerLinkActive="active"
@@ -53,6 +53,9 @@
           <a href="#Login" class="nav-link" routerLink="/login" routerLinkActive="active" >
               Login
           </a>
+      </li>
+      <li class="nav-item" >
+          <a href="#LoggedAs" class="nav-link" >{{usuarioLogado()}}</a>
       </li>
 <!-- 
       <li class="nav-item">
