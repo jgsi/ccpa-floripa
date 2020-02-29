@@ -2,6 +2,29 @@
 <input type="file" (change)="enviar($event)" accept=".png,.jpg" />
 <!-- <progress max="100" [value]="(progresso | async)"></progress> -->
 
-<div class="container" *ngIf="imagens | async; let url">
+<!-- <div class="container" *ngIf="imagens | async; let url">
   <img [src]="url" alt="Image from AngularFireStorage">
-</div>
+</div> -->
+
+<div class="table-responsive" >
+  <table class="table table-dark ">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Tamanho</th>           
+          <th scope="col">Imagem</th>           
+        </tr>
+      </thead>
+      <tbody>    
+        <tr *ngFor="let imagem of imagens | async">
+          <td >{{imagem.nome}}</td>
+          <td>{{imagem.tamanho}}</td>
+          <td> <img src="{{imagem.url}}" alt="imagem.nome" height="50pt" /> </td>
+          <td>
+            <a class="btn btn-danger bt-md" (click)="delete(imagem.key, imagem.nome)">Excluir</a>
+          </td>
+        </tr>
+      </tbody>
+  
+    </table>
+  </div>

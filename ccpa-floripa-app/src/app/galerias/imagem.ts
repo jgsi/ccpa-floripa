@@ -4,4 +4,5 @@ export class Imagem {
     id : string
     tamanho : number
     bytes : any 
+    url : string
 }
