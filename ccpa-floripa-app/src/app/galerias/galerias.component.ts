@@ -12,9 +12,9 @@ import { Imagem } from './imagem';
   styleUrls: ['./galerias.component.css']
 })
 export class GaleriasComponent implements OnInit {
-  ref : AngularFireStorageReference;
-  task: AngularFireUploadTask;
-  imagem: Imagem;
+  ref : AngularFireStorageReference
+  task: AngularFireUploadTask
+  imagem: Imagem
  // imagens : Observable<any>;
   
   constructor(private afStorage: AngularFireStorage , private imageService : ImagemService) { }
@@ -22,20 +22,19 @@ export class GaleriasComponent implements OnInit {
   ngOnInit() {
     //this.imagens = this.imageService.getAll()
     // this.imageService.getAll()
-    console.log(this.imageService.getAll())
+    //console.log(this.imageService.getAll())
   }
 
   enviar(evento){
 
     var file = evento.target.files[0]
     this.imagem = new Imagem()
-    this.imagem.bytes = file.getAsBinary()
     this.imagem.nome = file.name
     this.imagem.tamnho = file.size
     this.imageService.insert(this.imagem)
-    // const id = Math.random().toString(32).substring(2)
-    // this.ref = this.afStorage.ref(id);
-    // this.task = this.ref.put(evento.target.files[0])
+    const id = file.name
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(evento.target.files[0])
   }
 
 }

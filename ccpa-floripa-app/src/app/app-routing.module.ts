@@ -17,6 +17,7 @@ import { MapComponent } from './home/map/map.component';
 import { CarrosselComponent } from './home/carrossel/carrossel.component';
 import { MembrosComponent } from './membros/membros.component';
 import { AuthGuard } from './auth/auth.guard';
+import { GaleriasComponent } from './galerias/galerias.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'membros' , component: ListMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/new' , component: EditMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/:id' , component: EditMembroComponent, canActivate:[AuthGuard]},
+  { path: 'galeria' , component: GaleriasComponent, canActivate:[AuthGuard]},
   { path: '' , 
   redirectTo: 'home',
   pathMatch: 'full'},

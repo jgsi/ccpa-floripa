@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 
 export class ImagemService {
   
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private ref : AngularFireStorageReference) { }
+  constructor(private db: AngularFireDatabase) { }
 
   insert(imagem : Imagem){
     this.db.list('imagem').push(imagem)
@@ -41,7 +41,7 @@ export class ImagemService {
   }
 
   // Antigo Depreciado
-    upload(event) {
-      this.storage.upload('gs://ccpa-floripa.appspot.com/Home/', event.target.files[0]);  
-    }
+    // upload(event) {
+    //   this.storage.upload('gs://ccpa-floripa.appspot.com/Home/', event.target.files[0]);  
+    // }
 }
