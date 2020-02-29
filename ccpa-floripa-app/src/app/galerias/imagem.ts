@@ -2,5 +2,6 @@ export class Imagem {
 
     nome : string
     id : string
-    tamnho : number
+    tamanho : number
+    bytes : any 
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage ,  AngularFireStorageReference  } from '@angular/fire/storage';
+import { AngularFireStorage ,  AngularFireStorageReference, AngularFireUploadTask  } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Imagem } from './imagem';
-import { map } from 'rxjs/operators';
 
 
 @Injectable({

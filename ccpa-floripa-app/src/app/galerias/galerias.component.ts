@@ -15,9 +15,10 @@ export class GaleriasComponent implements OnInit {
   ref : AngularFireStorageReference
   task: AngularFireUploadTask
   imagem: Imagem
+ 
  // imagens : Observable<any>;
   
-  constructor(private afStorage: AngularFireStorage , private imageService : ImagemService) { }
+  constructor(private imageService : ImagemService, private  afStorage: AngularFireStorage) { }
 
   ngOnInit() {
     //this.imagens = this.imageService.getAll()
