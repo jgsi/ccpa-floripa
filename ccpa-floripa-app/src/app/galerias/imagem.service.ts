@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireStorage ,  AngularFireStorageReference, AngularFireUploadTask  } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Imagem } from './imagem';
 
 
 @Injectable({
@@ -13,8 +14,12 @@ export class ImagemService {
   ref : AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
+  imagem : Imagem
 
-  constructor(private afStorage: AngularFireStorage, private afStore: AngularFirestore ) { }
+  constructor(
+    private afStorage: AngularFireStorage
+  , private db : AngularFireDatabase
+  ) { }
 
     getAll() {
       // return this.afStorage.ref('/3i11k94kqv8').getDownloadURL();
@@ -24,18 +29,19 @@ export class ImagemService {
     }
 
     upload(evento) {
-      const id = Math.random().toString(32).substring(2)
-      // const id = evento.target.files[0].name
-      // this.ref = this.afStorage.ref('home/'+id);
-      // this.task = this.ref.put(evento.target.files[0])
       const file = evento.target.files[0]
-      // this.uploadProgress = this.task.snapshotChanges()
-          // .pipe(map(s => (s.bytesTransferred / s.totalBytes ) * 100));
+      const id = Math.random().toString(32).substring(2)
+      this.ref = this.afStorage.ref(id);
+      this.task = this.ref.put(file)
 
-      // Salvar o id do arquivo gerado randomicamente para listar depois
-      const imgRef: AngularFirestoreDocument<any> = this.afStore.doc(`imagens/${id}`)
-      //TO:DO fazer funcionar essa bagaça
-      imgRef.set({"id" : id,   });
+      this.imagem = new Imagem()
+      this.imagem.nome = file.name
+      this.imagem.id = id
+      this.imagem.tamanho = file.size
+      this.db.list('imagem').push(this.imagem)
+      .then((result : any ) =>{
+        console.log(result.key);
+      })
 
     }
 
