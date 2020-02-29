@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ImagemService } from 'src/app/galerias/imagem.service';
+import { Imagem } from 'src/app/galerias/imagem';
 
 @Component({
   selector: 'app-carrossel',
