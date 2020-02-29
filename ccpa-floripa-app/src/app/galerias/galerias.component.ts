@@ -3,6 +3,7 @@ import { ImagemService } from './imagem.service';
 import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTask  } from  "@angular/fire/storage";
 import { Observable } from 'rxjs';
 import { JsonPipe } from '@angular/common';
+import { Imagem } from './imagem';
 //import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -13,7 +14,7 @@ import { JsonPipe } from '@angular/common';
 export class GaleriasComponent implements OnInit {
   ref : AngularFireStorageReference;
   task: AngularFireUploadTask;
-
+  imagem: Imagem;
  // imagens : Observable<any>;
   
   constructor(private afStorage: AngularFireStorage , private imageService : ImagemService) { }
@@ -25,9 +26,16 @@ export class GaleriasComponent implements OnInit {
   }
 
   enviar(evento){
-    const id = Math.random().toString(32).substring(2)
-    this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(evento.target.files[0])
+
+    var file = evento.target.files[0]
+    this.imagem = new Imagem()
+    this.imagem.bytes = file.getAsBinary()
+    this.imagem.nome = file.name
+    this.imagem.tamnho = file.size
+    this.imageService.insert(this.imagem)
+    // const id = Math.random().toString(32).substring(2)
+    // this.ref = this.afStorage.ref(id);
+    // this.task = this.ref.put(evento.target.files[0])
   }
 
 }
