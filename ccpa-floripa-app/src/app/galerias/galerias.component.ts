@@ -31,7 +31,7 @@ export class GaleriasComponent implements OnInit {
     var file = evento.target.files[0]
     this.imagem = new Imagem()
     this.imagem.nome = file.name
-    this.imagem.tamnho = file.size
+    this.imagem.tamanho = file.size
     this.imageService.insert(this.imagem)
     const id = file.name
     this.ref = this.afStorage.ref(id);
