@@ -3,6 +3,7 @@ import { ImagemService } from './imagem.service';
 import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTask  } from  "@angular/fire/storage";
 import { Observable } from 'rxjs';
 import { JsonPipe } from '@angular/common';
+import { Imagem } from './imagem';
 //import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
