@@ -12,9 +12,13 @@ export class AppComponent {
 
   constructor(private authService : AuthService){  }
 
+  getUserImg(){
+    return this.authService.userData.photoURL;
+  }
+
   usuarioLogado(){
     try{
-      return this.authService.isLoggedIn ? 'Logado como: '+ this.authService.userData.displayName : ''
+      return this.authService.isLoggedIn ? '    '+ this.authService.userData.displayName : ''
     } catch (error){
      // console.error(error)
     }

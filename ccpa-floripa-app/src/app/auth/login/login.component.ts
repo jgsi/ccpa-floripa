@@ -24,6 +24,10 @@ export class LoginComponent {
 
   }
 
+  getUserImg(){
+    return this.authService.userData.photoURL;
+  }
+
   logout() {
   }
 }
