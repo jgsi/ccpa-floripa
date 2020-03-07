@@ -16,12 +16,16 @@ export class LoginComponent {
   }
 
   setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in as ' +this.authService.userData.displayName : 'out') ;
+    this.message = 'Entrou ' + (this.authService.isLoggedIn ? 'como ' +this.authService.userData.displayName : 'out') ;
   }
 
   login() {
-    this.message = 'Trying to log in ...';
+    this.message = 'Fazendo login ...';
 
+  }
+
+  getUserImg(){
+    return this.authService.userData.photoURL;
   }
 
   logout() {

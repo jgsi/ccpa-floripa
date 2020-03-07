@@ -31,11 +31,6 @@
           </a>
       </li>
       <li class="nav-item">
-        <a href="#Galeria" class="nav-link" routerLink="/galeria" routerLinkActive="active">
-            Galeria
-        </a>
-    </li>
-      <li class="nav-item">
           <a href="#Lancamentos" class="nav-link" data-toggle="modal" data-target="#ModalLancamentos">
               Lançamentos
           </a>
@@ -60,9 +55,12 @@
               Login
           </a>
       </li>
-      <!-- <li class="nav-item" >
-          <a href="#LoggedAs" class="nav-link" >{{usuarioLogado()}}</a>
-      </li> -->
+
+
+      <li class="nav-item" >
+          <a href="#LoggedAs" class="nav-link text-left" >{{usuarioLogado()}} <img src={{getUserImg()}} alt="..." class="rounded-circle" style="width: 32px;"></a>
+          
+      </li>
 
   </ul>
   </div>

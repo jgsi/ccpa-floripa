@@ -1,12 +1,39 @@
-<label for="file">File:</label>
-<input type="file" (change)="enviar($event)" accept=".png,.jpg" />
+
+
+<div class="input-group mb-3 mt-5">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Enviar</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" (change)="enviar($event)" accept=".png,.jpg" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Escolher arquivo</label>
+  </div>
+</div>
 <!-- <progress max="100" [value]="(progresso | async)"></progress> -->
 
 <!-- <div class="container" *ngIf="imagens | async; let url">
   <img [src]="url" alt="Image from AngularFireStorage">
 </div> -->
 
-<div class="table-responsive" >
+
+
+
+<div class="conteiner">
+  <div class="row justify-content-md-center">
+
+    <div class="card col-md-auto mt-3 mx-2" style="width: 25rem;" *ngFor="let imagem of imagens | async" >
+
+      <img class="card-img-top" src="{{imagem.url}}" alt="imagem.nome">
+      <div class="card-body">
+        <h5 class="card-title">{{imagem.nome}}</h5>
+        <p class="card-text">{{imagem.tamanho}} mb</p>
+        <a class="btn btn-danger bt-md" (click)="delete(imagem.key, imagem.nome)">Excluir</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="table-responsive" >
   <table class="table table-dark ">
       <thead>
         <tr>
@@ -27,4 +54,4 @@
       </tbody>
   
     </table>
-  </div>
+  </div> -->
