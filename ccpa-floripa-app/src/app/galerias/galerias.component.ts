@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ImagemService } from './imagem.service';
+import { AudiosService } from './audios.service';
 import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTask  } from  "@angular/fire/storage";
 import { Observable } from 'rxjs';
 import { JsonPipe } from '@angular/common';
 import { Imagem } from './imagem';
+import { Audios } from './audios';
 //import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -14,14 +16,22 @@ import { Imagem } from './imagem';
 export class GaleriasComponent implements OnInit {
   ref : AngularFireStorageReference
   task: AngularFireUploadTask
-  imagem: Imagem
- 
-  imagens : Observable<any>;
   
-  constructor(private imageService : ImagemService, private  afStorage: AngularFireStorage) { }
+  imagem: Imagem
+  audio: Audios
+
+  imagens : Observable<any>;
+  audios: Observable<any>;
+  
+  
+  key: string
+  nome: string
+
+  constructor(private imageService : ImagemService,private audioService : AudiosService, private  afStorage: AngularFireStorage) { }
 
   ngOnInit() {
     this.imagens = this.imageService.getAll()
+    this.audios = this.audioService.getAll()
     // this.imagens.subscribe(imgs => { 
     //   imgs.forEach( imagem => {
     //     // console.log(imagem.nome)        
@@ -38,14 +48,14 @@ export class GaleriasComponent implements OnInit {
   }
 
 
-  enviar(evento){
+  enviarImg(evento){
 
     var file = evento.target.files[0]
     this.imagem = new Imagem()
     this.imagem.nome = file.name
     this.imagem.tamanho = file.size
     const id = file.name
-    this.ref = this.afStorage.ref(id);
+    this.ref = this.afStorage.ref('imagens/'+id);
     this.task = this.ref.put(evento.target.files[0])
     this.task.then(a => {
       this.ref.getDownloadURL().subscribe((url) => {
@@ -55,10 +65,39 @@ export class GaleriasComponent implements OnInit {
     })
   }
 
-  delete(key : string, nome: string){
-    this.imageService.delete(key)
-    this.afStorage.ref(nome).delete()
-    console.log(nome)
+  enviarAud(evento){
+
+    var file = evento.target.files[0]
+    this.audio = new Audios()
+    this.audio.nome = file.name
+    this.audio.tamanho = file.size
+    const id = file.name
+    this.ref = this.afStorage.ref('audios/'+id);
+    this.task = this.ref.put(evento.target.files[0])
+    this.task.then(a => {
+      this.ref.getDownloadURL().subscribe((url) => {
+        this.audio.url = url
+        this.audioService.insert(this.audio)
+      })  
+    })
+  }
+
+  play(url: string){
+    var audio = new Audio();
+    audio.src = url;
+    audio.load();
+    audio.play();
+  }
+
+  delete(){
+    this.imageService.delete(this.key)
+    this.afStorage.ref(this.nome).delete()
+    console.log(this.nome)
+  }
+
+  comfirm(key : string, nome: string){
+    this.key = key
+    this.nome = nome
   }
 
 }
