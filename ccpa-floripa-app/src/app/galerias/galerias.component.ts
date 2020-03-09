@@ -23,7 +23,7 @@ export class GaleriasComponent implements OnInit {
   imagens : Observable<any>;
   audios: Observable<any>;
   
-  
+  url: string
   key: string
   nome: string
 
@@ -83,14 +83,16 @@ export class GaleriasComponent implements OnInit {
   }
 
   play(url: string){
-    var audio = new Audio();
-    audio.src = url;
-    audio.load();
-    audio.play();
+    this.url =  url
   }
 
-  delete(){
+  deleteImg(){
     this.imageService.delete(this.key)
+    this.afStorage.ref(this.nome).delete()
+    console.log(this.nome)
+  }
+  deleteAud(){
+    this.audioService.delete(this.key)
     this.afStorage.ref(this.nome).delete()
     console.log(this.nome)
   }
