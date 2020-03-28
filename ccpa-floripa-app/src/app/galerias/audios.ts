@@ -1,4 +1,4 @@
-export class Imagem {
+export class Audios {
     nome : string
     id : string
     tamanho : number

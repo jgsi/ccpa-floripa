@@ -1,42 +1,27 @@
 
 
-<div class="input-group mb-3 mt-5">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroupFileAddon01">Enviar</span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" (change)="enviar($event)" accept=".png,.jpg" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Escolher arquivo</label>
-  </div>
-</div>
-<!-- <progress max="100" [value]="(progresso | async)"></progress> -->
-
-<!-- <div class="container" *ngIf="imagens | async; let url">
-  <img [src]="url" alt="Image from AngularFireStorage">
-</div> -->
-
-
-
-
-<div class="conteiner">
-  <div class="row justify-content-md-center">
-
-    <div class="card col-md-auto mt-3 mx-2" style="width: 25rem;" *ngFor="let imagem of imagens | async" >
-
-      <img class="card-img-top" src="{{imagem.url}}" alt="imagem.nome">
-      <div class="card-body">
-        <h5 class="card-title">{{imagem.nome}}</h5>
-        <p class="card-text">{{imagem.tamanho}} mb</p>
-        <button type="button" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalExemplo">
-          Excluir
+<!-- Modal Play -->
+<div class="modal fade" id="modalPlay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tocando: {{nome}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
         </button>
+      </div>
+      <div class="modal-body">
+        <audio src="{{url}}" controls></audio>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal confirm -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,32 +34,104 @@
         Tem Certeza que deseja excluir???
       </div>
       <div class="modal-footer">
-        <a class="btn btn-danger bt-md" (click)="delete(imagem.key, imagem.nome)">Excluir</a>
+        <a class="btn btn-danger bt-md" data-dismiss="modal" style="color: white;" (click)="delete()">Excluir</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- <div class="table-responsive" >
-  <table class="table table-dark ">
-      <thead>
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Tamanho</th>           
-          <th scope="col">Imagem</th>           
-        </tr>
-      </thead>
-      <tbody>    
-        <tr *ngFor="let imagem of imagens | async">
-          <td >{{imagem.nome}}</td>
-          <td>{{imagem.tamanho}}</td>
-          <td> <img src="{{imagem.url}}" alt="imagem.nome" height="50pt" /> </td>
-          <td>
-            <a class="btn btn-danger bt-md" (click)="delete(imagem.key, imagem.nome)">Excluir</a>
-          </td>
-        </tr>
-      </tbody>
-  
-    </table>
-  </div> -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="imagens-tab" data-toggle="tab" href="#imagens" role="tab" aria-controls="imagens" aria-selected="true">Imagens</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="audios-tab" data-toggle="tab" href="#audios" role="tab" aria-controls="audios" aria-selected="false">Audios</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+<!-- Tabs  -->
+  <div class="tab-pane fade show active" id="imagens" role="tabpanel" aria-labelledby="imagens-tab">
+      <div class="jumbotron jumbotron-fluid mt-3 mx-3">
+        <div class="container" style="text-align: center;">
+      
+          <h5 class="display-4">Enviar Fotos</h5>
+      
+          <div class="input-group mb-3 mt-5 mx-15">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Enviar</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" (change)="enviarImg($event)" accept=".png,.jpg" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" style="text-align: center;" for="inputGroupFile01">Escolher arquivo</label>
+            </div>
+          </div>    
+        </div>
+      </div>
+      <div class="conteiner">
+        <div class="row justify-content-md-center">
+      
+          <div class="card col-md-auto mt-3 mx-2" style="width: 25rem;" *ngFor="let imagem of imagens | async" >
+      
+            <img class="card-img-top" src="{{imagem.url}}" alt="imagem.nome">
+            <div class="card-body">
+              <h5 class="card-title">{{imagem.nome}}</h5>
+              <p class="card-text">{{imagem.tamanho}} mb</p>
+              <button type="button" (click)="comfirm(imagem.key, imagem.nome)" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalDelete">
+                Excluir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="tab-pane fade" id="audios" role="tabpanel" aria-labelledby="audios-tab">
+
+    <!-- Tabs -->
+    <div class="jumbotron jumbotron-fluid mt-3 mx-3">
+      <div class="container" style="text-align: center;">
+    
+        <h5 class="display-4">Enviar Audios</h5>
+    
+        <div class="input-group mb-3 mt-5 mx-15">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Enviar</span>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" (change)="enviarAud($event)" accept=".mp3,.flac" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" style="text-align: center;" for="inputGroupFile01">Escolher arquivo</label>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <div class="conteiner">
+      <div class="row justify-content-md-center">
+        
+        <!-- Seletor de Audios -->
+        <div class="card col-md-auto mt-3 mx-2" style="width: 25rem;" *ngFor="let audio of audios | async" >
+    
+          <img class="card-img-top" src="https://us.123rf.com/450wm/themoderncanvas/themoderncanvas1602/themoderncanvas160200095/52803074-stock-vector-audio-icon-speaker-sign-volume-symbol-white-volume-icon-on-cool-grey-circle-background-vector-illust.jpg?ver=6" alt="audio.nome">
+          <div class="card-body">
+            <h5 class="card-title">{{audio.nome}}</h5>
+            <p class="card-text">{{audio.tamanho}} mb</p>
+            <button type="button" (click)="comfirm(audio.key, audio.nome)" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalDelete">
+              Excluir
+            </button>
+            <button type="button" (click)="play(audio.url)" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalPlay">
+              {{comfirm(audio.key, audio.nome)}}
+              Tocar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
