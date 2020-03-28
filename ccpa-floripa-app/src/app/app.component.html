@@ -7,26 +7,20 @@
   </button>
       
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">        
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-          
-          <a href="#ProdutosBazar" class="nav-link" 
-          routerLink="/produtos" routerLinkActive="active"
-          >
+          <a href="#ProdutosBazar" class="nav-link" routerLink="/produtos" routerLinkActive="active"  >
               Controle de Produtos Bazar
           </a>
       </li>
       <li class="nav-item">
-          <a href="#Membros" class="nav-link" 
-          routerLink="/membros" routerLinkActive="active">
+          <a href="#Membros" class="nav-link" routerLink="/membros" routerLinkActive="active">
               Membros
           </a>
       </li>
       <li class="nav-item">
         <!-- data-toggle="modal" data-target="#ModalCelulas" -->
-          <a href="#Celulas" class="nav-link" 
-            routerLink="/celulas" routerLinkActive="active"
-          >
+          <a href="#Celulas" class="nav-link" routerLink="/celulas" routerLinkActive="active"          >
               Células
           </a>
       </li>
@@ -38,7 +32,7 @@
       <li class="nav-item">
           <a href="#Departamentos" class="nav-link" data-toggle="modal" data-target="#ModalDepartamentos">
                   Departamentos
-              </a>
+          </a>
       </li>
       <li class="nav-item">
           <a href="#Escalas" class="nav-link" data-toggle="modal" data-target="#ModalEscalas">
@@ -56,13 +50,13 @@
           </a>
       </li>
 
-
-      <span class="navbar-text d-lg-inline-block" >
-          {{usuarioLogado()}} <img src={{getUserImg()}} alt="..." class="rounded-circle" style="width: 32px;">    
-      </span>
-
   </ul>
+    <span class="navbar-text " >
+      {{usuarioLogado()}} <img src={{getUserImg()}} alt="..." class="rounded-circle" style="width: 32px;">    
+    </span>
   </div>
+
+
 </nav>
 
 
