@@ -1,0 +1,29 @@
+<div class="container-fluid  " >
+    <div class="row ml-auto">
+      <div class="col-xs-12 col-sm-12 col-md-4" *ngFor="let lancamento of lancamentos | async">
+        <div class="card text-white bg-dark my-3" style="width: 20rem;" >
+          <div class="card-header">
+            <h5 class="card-title">
+              <span>{{lancamento.tipo}} - </span>       
+              <span>{{lancamento.data | date: 'dd/MM/yyyy'}}</span>
+            </h5>
+          </div>
+          <div class="card-body">
+              <div class="card-text">
+                <ul>
+                    <li>Nome         {{lancamento.nome}}                        </li>
+                    <li>Valor:     {{lancamento.valor}}                      </li>
+                    <li>Data:        {{lancamento.data | date: 'dd/MM/yyyy'}}  </li>
+                    <li>Especifica:       {{lancamento.especifica}}                 </li>
+                    <li>Tipo:      {{lancamento.tipo}}                       </li>
+                </ul>
+            </div>
+            <a class="btn btn-warning bt-md" (click)="edit(lancamento, lancamento.key)"  
+            [routerLink]="['/lancamento', lancamento.nome]" routerLinkActive="active" >Editar</a> 
+            <a class="btn btn-danger bt-md" (click)="delete(lancamento.key)">Excluir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>

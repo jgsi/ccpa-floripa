@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()" class="container jumbotron " ngNativeValidate>
+ 
+    <header class="display-4 text-center" > Lancamento de {{lancamento.tipo}} </header>
+    <div class="form-group" *ngIf="lancamento.tipo != 'Oferta'">
+      <label>Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="lancamento.nome" name="nome"
+        placeholder="Nome escrito no envelope" required/>
+    </div>
+   
+    <div class="form-group">
+      <label>Valor</label>
+      <input type="number" class="form-control" [(ngModel)]="lancamento.valor" name="valor" 
+      placeholder="Entre com o valor" required/>
+    </div>
+   
+   
+    <div class="form-group">
+        <label>Data </label>
+        <input type="date" class="form-control" [(ngModel)]="lancamento.data" name="data" 
+        placeholder="Entre com a data do lançamento" required />
+      </div>
+    
+
+      <div class="form-group" *ngIf="lancamento.tipo == 'Oferta Especifica'">
+        <label>Específica </label>
+        <input type="number" class="form-control" [(ngModel)]="lancamento.especifica" name="especifica" 
+        placeholder="Entre com a descrição para o que é direcionada a oferta" required/>
+      </div>
+     
+  
+      <footer class="text-center">      
+        <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+        <button type="button" (click)="list()" class="btn btn-danger btn-lg">Cancelar</button>
+      </footer>  
+  </form>

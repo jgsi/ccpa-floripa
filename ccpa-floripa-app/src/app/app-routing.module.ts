@@ -18,6 +18,8 @@ import { CarrosselComponent } from './home/carrossel/carrossel.component';
 import { MembrosComponent } from './membros/membros.component';
 import { AuthGuard } from './auth/auth.guard';
 import { GaleriasComponent } from './galerias/galerias.component';
+import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
+import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,9 @@ const routes: Routes = [
   { path: 'celula/new' , component: EditCelulaComponent, canActivate:[AuthGuard]},
   { path: 'celula/:id' , component: EditCelulaComponent, canActivate:[AuthGuard]},
   { path: 'home' , component: HomeComponent},
+  { path: 'lancamentos' , component: ListLancamentosComponent, canActivate:[AuthGuard]},
+  { path: 'lancamento/new' , component: EditLancamentoComponent, canActivate:[AuthGuard]},
+  { path: 'lancamento/:tipo' , component: EditLancamentoComponent, canActivate:[AuthGuard]},
   { path: 'membros' , component: ListMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/new' , component: EditMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/:id' , component: EditMembroComponent, canActivate:[AuthGuard]},

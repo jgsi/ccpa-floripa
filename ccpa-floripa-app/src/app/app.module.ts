@@ -45,6 +45,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { ListDepartamentoComponent } from './departamentos/list-departamento/list-departamento.component';
 import { EditDepartamentoComponent } from './departamentos/edit-departamento/edit-departamento.component';
 import { DepartamentoComponent } from './departamentos/departamento/departamento.component';
+import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
+import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
 
 registerLocaleData(localeBr);
 
@@ -70,7 +72,9 @@ registerLocaleData(localeBr);
     GaleriasComponent,
     ListDepartamentoComponent,
     EditDepartamentoComponent,
-    DepartamentoComponent
+    DepartamentoComponent,
+    EditLancamentoComponent,
+    ListLancamentosComponent
   ],
   imports: [
     AuthModule,
