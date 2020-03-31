@@ -48,6 +48,7 @@ import { EditDepartamentoComponent } from './departamentos/edit-departamento/edi
 import { DepartamentoComponent } from './departamentos/departamento/departamento.component';
 import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
 import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
+import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-la
     EditDepartamentoComponent,
     DepartamentoComponent,
     EditLancamentoComponent,
-    ListLancamentosComponent
+    ListLancamentosComponent,
+    DetalheMembroComponent
   ],
   imports: [
     AuthModule,

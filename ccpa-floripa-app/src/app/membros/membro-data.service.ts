@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import {Membro} from './membro'
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -1,35 +1,22 @@
-<div class="table-responsive" >
-    <table class="table table-dark ">
+<div class="mx-3 my-3" >
+    <table class="table table-dark table-hover">
         <thead>
           <tr>
             <th scope="col">Nome</th>
             <th scope="col">Celular</th>
-            <th scope="col">Email</th>
-            <th scope="col">Data Nascimento</th>
-            <th scope="col">Data Menbresia</th>
-            <th scope="col">Endereço</th>
-            <th scope="col">Sexo</th>
-              
           </tr>
         </thead>
         <tbody>    
-          <tr *ngFor="let membro of membros | async">
-            <td >{{membro.nome}}</td>
+          <tr *ngFor="let membro of membros | async" (click)="edit(membro, membro.key)" 
+            routerLink="/membro/detail" routerLinkActive="active" 
+            class=""
+            style="cursor: pointer;">
+            <td>{{membro.nome}}</td>
             <td>{{membro.celular}}</td>
-            <td>{{membro.email}}</td>
-            <td>{{membro.dataNascimento | date: 'dd/MM/yyyy' }}</td>
-            <td i18n>{{membro.dataMenbresia | date: 'dd/MM/yyyy' }}</td>
-            <td>{{membro.endereco}}</td>
-            <td>{{membro.sexo}}</td>
-            <td>
-                <a class="btn btn-warning bt-md" (click)="edit(membro, membro.key)"  [routerLink]="['/membro', membro.nome]" routerLinkActive="active" >Editar</a> 
-                <a class="btn btn-danger  bt-md"  (click)="delete(membro.key)">Excluir</a>
-              <!-- <a>membro.key = {{membro.key}} </a> -->
-            </td>
           </tr>
         </tbody>
-        <tfoot>
-          <th colspan="2"><a class="btn btn-warning" (click)="new()" routerLink="/membro/new" routerLinkActive="active" >Cadastrar Novo Membro</a></th>
+        <tfoot >
+          <th colspan="2" ><a class="btn btn-warning" (click)="new()" routerLink="/membro/new" routerLinkActive="active" >Cadastrar Novo Membro</a></th>
         </tfoot>
     
       </table>

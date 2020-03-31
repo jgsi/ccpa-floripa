@@ -20,6 +20,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { GaleriasComponent } from './galerias/galerias.component';
 import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
 import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
+import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'lancamento/:tipo' , component: EditLancamentoComponent, canActivate:[AuthGuard]},
   { path: 'membros' , component: ListMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/new' , component: EditMembroComponent, canActivate:[AuthGuard]},
+  { path: 'membro/detail' , component: DetalheMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/:id' , component: EditMembroComponent, canActivate:[AuthGuard]},
   { path: 'galeria' , component: GaleriasComponent, canActivate:[AuthGuard]},
   { path: '' , 

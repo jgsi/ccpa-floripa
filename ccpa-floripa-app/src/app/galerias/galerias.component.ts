@@ -24,8 +24,9 @@ export class GaleriasComponent implements OnInit {
   audios: Observable<any>;
   
   url: string
-  key: string
-  nome: string
+  key: string;
+  nome: string;
+  
 
   constructor(private imageService : ImagemService,private audioService : AudiosService, private  afStorage: AngularFireStorage) { }
 
@@ -91,15 +92,17 @@ export class GaleriasComponent implements OnInit {
     this.afStorage.ref(this.nome).delete()
     console.log(this.nome)
   }
-  deleteAud(){
+  deleteAudio(){
     this.audioService.delete(this.key)
     this.afStorage.ref(this.nome).delete()
-    console.log(this.nome)
+    // console.log(this.nome)
   }
 
-  comfirm(key : string, nome: string){
+  comfirm(key : string, nome : string ){
     this.key = key
     this.nome = nome
+    // console.log(nome)
+    // console.log(key)
   }
 
 }
