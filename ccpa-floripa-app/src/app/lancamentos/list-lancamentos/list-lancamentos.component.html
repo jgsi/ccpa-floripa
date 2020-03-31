@@ -11,10 +11,10 @@
           <div class="card-body">
               <div class="card-text">
                 <ul>
-                    <li>Nome         {{lancamento.nome}}                        </li>
-                    <li>Valor:     {{lancamento.valor}}                      </li>
+                    <li *ngIf="lancamento.tipo != 'Oferta'">Nome:         {{lancamento.nome}}                        </li>
+                    <li>Valor:     {{lancamento.valor | currency:'R$ '}}                      </li>
                     <li>Data:        {{lancamento.data | date: 'dd/MM/yyyy'}}  </li>
-                    <li>Especifica:       {{lancamento.especifica}}                 </li>
+                    <li *ngIf="lancamento.tipo == 'Oferta Especifica'">Especifica:       {{lancamento.especifica}}                 </li>
                     <li>Tipo:      {{lancamento.tipo}}                       </li>
                 </ul>
             </div>

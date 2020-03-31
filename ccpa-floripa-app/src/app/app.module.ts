@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+registerLocaleData(ptBr)
 
 // Auth service
 import { AuthService } from "./auth/auth.service";
@@ -38,8 +41,6 @@ import { MembrosComponent } from './membros/membros.component';
 import { EditMembroComponent } from './membros/edit-membro/edit-membro.component';
 import { ListMembroComponent } from './membros/list-membro/list-membro.component';
 
-import { registerLocaleData } from '@angular/common';
-import localeBr  from '@angular/common/locales/pt';
 import { GaleriasComponent } from './galerias/galerias.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ListDepartamentoComponent } from './departamentos/list-departamento/list-departamento.component';
@@ -48,7 +49,6 @@ import { DepartamentoComponent } from './departamentos/departamento/departamento
 import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
 import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
 
-registerLocaleData(localeBr);
 
 @NgModule({
   declarations: [
@@ -90,9 +90,11 @@ registerLocaleData(localeBr);
     AngularFirestoreModule,
     AngularFireStorageModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { 
   
 }
