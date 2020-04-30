@@ -20,16 +20,12 @@ export class ListMembroComponent implements OnInit {
     this.membros  = this.membroService.getAll()
   }
 
-  delete(key : string){
-    this.membroService.delete(key)
+  new(){
+    this.membroDataService.changeMembro(new Membro(), '')
   }
 
   edit(membro : Membro, key : string){
     this.membroDataService.changeMembro(membro,key)
-  }
-
-  new(){
-    this.membroDataService.changeMembro(new Membro(), '')
   }
 
 }

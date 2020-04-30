@@ -26,7 +26,7 @@ export class MembroService {
   }
 
   getAll(){
-    return this.db.list('membro').snapshotChanges().pipe(
+    return this.db.list('membro', ref => ref.orderByChild('nome')).snapshotChanges().pipe(
       map(changes => {
         return changes.map(c =>({ key : c.payload.key, ...c.payload.val() as {}}))
       })

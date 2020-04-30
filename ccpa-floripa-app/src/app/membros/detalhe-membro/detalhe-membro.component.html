@@ -34,9 +34,10 @@
             <p class="text-center">
               <a class="btn btn-primary bt-md mx-2" 
               routerLink="/membros" routerLinkActive="active" >Voltar</a> 
-              <a class="btn btn-warning bt-md mx-2" (click)="edit(membro, membro.key)"  
-              [routerLink]="['/membro', membro.nome]" routerLinkActive="active" >Editar</a> 
-              <a class="btn btn-danger bt-md mx-2" (click)="delete(membro.key)">Excluir</a>
+              <a class="btn btn-warning bt-md mx-2" (click)="edit(membro, key)"  
+              [routerLink]="['/membro', membro.id]" routerLinkActive="active" >Editar</a> 
+              <a class="btn btn-danger bt-md mx-2" (click)="delete(key)" 
+              routerLink="/membros" routerLinkActive="active">Excluir</a>
             </p>
         </div>
       </div>

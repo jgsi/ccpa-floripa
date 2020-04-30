@@ -7,7 +7,7 @@
           </tr>
         </thead>
         <tbody>    
-          <tr *ngFor="let membro of membros | async" (click)="edit(membro, membro.key)" 
+          <tr *ngFor="let membro of membros | async " (click)="edit(membro, membro.key)" 
             routerLink="/membro/detail" routerLinkActive="active" 
             class=""
             style="cursor: pointer;">

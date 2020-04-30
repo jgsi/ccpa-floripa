@@ -3,6 +3,7 @@ import { MembroService } from '../membro.service';
 import { MembroDataService } from '../membro-data.service';
 import { Membro } from '../membro';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalhe-membro',
@@ -13,7 +14,7 @@ export class DetalheMembroComponent implements OnInit {
   membro: Membro;
   key: string;
 
-  constructor(private membroService : MembroService, private membroDataService : MembroDataService) { }
+  constructor(private membroService : MembroService, private membroDataService : MembroDataService, router : Router) { }
 
   ngOnInit() {
     this.membro = new Membro()
@@ -30,6 +31,14 @@ export class DetalheMembroComponent implements OnInit {
         this.key = data.key
       }
     })
+  }
+
+  delete(key : string){
+    this.membroService.delete(key)  
+  }
+
+  edit(membro : Membro, key : string){
+    this.membroDataService.changeMembro(membro,key)
   }
 
 }
