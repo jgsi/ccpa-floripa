@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Membro } from '../membro';
 import { MembroService } from '../membro.service';
 import { MembroDataService } from '../membro-data.service';
-import { Observable } from 'rxjs'
+import { Observable, Subject, BehaviorSubject } from 'rxjs'
+import { map, switchMap } from 'rxjs/operators';
+import { AngularFireAction, AngularFireDatabase } from '@angular/fire/database';
 
 
 @Component({
@@ -12,13 +14,15 @@ import { Observable } from 'rxjs'
 })
 export class ListMembroComponent implements OnInit {
 
-  membros : Observable<any>
+  membros$ : Observable<AngularFireAction<firebase.database.DataSnapshot>[]>
+  filtro : string|null
 
-  constructor(private membroService : MembroService, private membroDataService : MembroDataService) { }
-
-  ngOnInit() {
-    this.membros  = this.membroService.getAll()
+  constructor(private membroService : MembroService, private membroDataService : MembroDataService) { 
   }
+
+    ngOnInit() {
+      this.membros$ = this.membroService.getAll()
+    }
 
   new(){
     this.membroDataService.changeMembro(new Membro(), '')
@@ -26,6 +30,8 @@ export class ListMembroComponent implements OnInit {
 
   edit(membro : Membro, key : string){
     this.membroDataService.changeMembro(membro,key)
+    console.log(membro)
+    console.log(key)
   }
 
 }

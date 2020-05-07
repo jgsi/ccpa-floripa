@@ -1,23 +1,39 @@
-<div class="mx-3 my-3" >
-    <table class="table table-dark table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Celular</th>
-          </tr>
-        </thead>
-        <tbody>    
-          <tr *ngFor="let membro of membros | async " (click)="edit(membro, membro.key)" 
-            routerLink="/membro/detail" routerLinkActive="active" 
-            class=""
-            style="cursor: pointer;">
-            <td>{{membro.nome}}</td>
-            <td>{{membro.celular}}</td>
-          </tr>
-        </tbody>
-        <tfoot >
-          <th colspan="2" ><a class="btn btn-warning" (click)="new()" routerLink="/membro/new" routerLinkActive="active" >Cadastrar Novo Membro</a></th>
-        </tfoot>
+<div class="mx-3 my-3" *ngIf="membros$ | async; let membros$; else loading" >
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col" colspan="2"> <input type="text"  [(ngModel)]="filtro" 
+          name="filtro" placeholder="digite o nome para filtrar" /> 
+        </th>
+      </tr>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Celular</th>
+      </tr>
+    </thead>
+    <tbody>    
+      <tr *ngFor="let membro of membros$ | filtro:filtro " (click)="edit(membro.payload.val(), membro.payload.key)" 
+        routerLink="/membro/detail" routerLinkActive="active" 
+        style="cursor: pointer;">
+        <td>{{membro.payload.val().nome}}</td>
+        <td>{{membro.payload.val().celular}}</td>
+      </tr>
+      <tr *ngIf="membros$.length == 0">
+        <td>Nenhum membro encontrado para o filtro digitado.</td>
+
+      </tr>
+    </tbody>
+    <tfoot >
+      <th colspan="2" ><a class="btn btn-warning" (click)="new()" routerLink="/membro/new" routerLinkActive="active" >Cadastrar Novo Membro</a></th>
+    </tfoot>
     
-      </table>
-    </div>
+  </table>
+</div>
+<ng-template #loading>
+  
+    <img src="assets/Loading.gif" alt="Carregando dados&hellip;" style="width: 100%; height: auto; background-color: #222;"/>
+
+  
+
+</ng-template>
+

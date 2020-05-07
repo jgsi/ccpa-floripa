@@ -49,7 +49,8 @@ import { DepartamentoComponent } from './departamentos/departamento/departamento
 import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
 import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
 import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.component';
-
+import { SpinnerComponent } from './spinner/spinner.component';
+import { FiltroPipe } from './filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,9 @@ import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.
     DepartamentoComponent,
     EditLancamentoComponent,
     ListLancamentosComponent,
-    DetalheMembroComponent
+    DetalheMembroComponent,
+    SpinnerComponent,
+    FiltroPipe
   ],
   imports: [
     AuthModule,
@@ -90,7 +93,7 @@ import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.
     FullCalendarModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
