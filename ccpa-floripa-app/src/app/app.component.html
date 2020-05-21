@@ -8,23 +8,24 @@
       
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">        
       <ul class="navbar-nav mx-auto">
-      <li class="nav-item" *ngIf="usuarioLogado()">
-          <a href="#ProdutosBazar" class="nav-link" routerLink="/produtos" routerLinkActive="active"  >
+      <li class="nav-item" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
+          <a href="#ProdutosBazar" class="nav-link" routerLink="/produtos" routerLinkActive="active" 
+          >
               Controle de Produtos Bazar
           </a>
       </li>
-      <li class="nav-item" *ngIf="usuarioLogado()">
+      <li class="nav-item" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
           <a href="#Membros" class="nav-link" routerLink="/membros" routerLinkActive="active">
               Membros
           </a>
       </li>
-      <li class="nav-item" *ngIf="usuarioLogado()">
+      <li class="nav-item" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
         <!-- data-toggle="modal" data-target="#ModalCelulas" -->
           <a href="#Celulas" class="nav-link" routerLink="/celulas" routerLinkActive="active"          >
               Células
           </a>
       </li>
-      <li class="nav-item dropdown" *ngIf="usuarioLogado()">
+      <li class="nav-item dropdown" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
           <a href="#Lancamentos" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Lançamentos
@@ -39,18 +40,18 @@
             <a class="dropdown-item" href="#">Despesa</a>
           </div>
       </li>
-      <li class="nav-item" *ngIf="usuarioLogado()">
+      <li class="nav-item" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
           <a href="#Departamentos" class="nav-link" data-toggle="modal" data-target="#ModalDepartamentos">
                   Departamentos
           </a>
       </li>
-      <li class="nav-item " *ngIf="usuarioLogado()">
+      <li class="nav-item " *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
           <a href="#Escalas" class="nav-link" href="#" id="" 
           >
               Escalas
           </a>
       </li>
-      <li class="nav-item" *ngIf="usuarioLogado()">
+      <li class="nav-item" *ngIf="usuarioLogado()" data-toggle="collapse" data-target="#conteudoNavbarSuportado.show">
           <a href="#Galeria" class="nav-link" routerLink="/galeria" routerLinkActive="active" >
               Galeria Adm
           </a>
