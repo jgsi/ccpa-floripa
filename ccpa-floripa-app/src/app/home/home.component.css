@@ -1,6 +1,6 @@
 
 .banner-area {
-          background: url(src/assets/ccpafloripabanner.jpg) center;
+          background: url(https://firebasestorage.googleapis.com/v0/b/ccpa-floripa.appspot.com/o/imagens%2FBaner%2FFundoHome.png?alt=media&token=8e07c0d6-b1e8-4a9d-851d-a5840596a708) center;
           background-size: cover;
         }
 
@@ -115,6 +115,6 @@
 
 .slide-area{
   background-size: cover;
-  size: 23%;
+  size: 90%;
 
 }
