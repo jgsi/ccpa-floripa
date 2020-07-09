@@ -13,6 +13,7 @@ import { Observable } from 'rxjs'
 export class ListCelulaComponent implements OnInit {
 
   celulas : Observable<any>
+  filtro : string|null
 
   constructor(private celulaService : CelulaService, private celulaDataService : CelulaDataService) { }
 
