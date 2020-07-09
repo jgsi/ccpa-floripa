@@ -23,7 +23,7 @@ export class DetalheMembroComponent implements OnInit {
         this.membro = new Membro()
         this.membro.nome = data.membro.nome
         this.membro.sexo = data.membro.sexo
-        this.membro.dataMenbresia = data.membro.dataMenbresia
+        this.membro.dataMembresia = data.membro.dataMembresia
         this.membro.dataNascimento  = data.membro.dataNascimento
         this.membro.endereco = data.membro.endereco
         this.membro.celular = data.membro.celular

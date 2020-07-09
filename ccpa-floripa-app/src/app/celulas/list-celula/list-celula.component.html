@@ -1,34 +1,36 @@
-<div class="container-fluid  " >
-  <div class="row ml-auto">
-    <div class="col-4 mt-3" >
-      <a class="btn btn-warning btn-lg text-center" (click)="new()" style="width: 20rem;"
+<div class="container-fluid"  *ngIf="celulas$ | async; let celulas$; else loading" >
+  <div class="row">
+    <div class="col-12 col-md-12 col-sm-12 mt-3 mx-auto text-center" >
+      <a class="btn btn-warning btn-lg " (click)="new()" style="width: 20rem;"
           routerLink="/celula/new" routerLinkActive="active" >
         Cadastrar Nova Célula
       </a>  
     </div>
-    <div class="col-3 mt-3" >
-      <input type="text"  [(ngModel)]="filtro" class="form-control"
+  </div>
+  <div class="row">
+      <div class="col-12 col-sm-12  col-md-12 col-lg-6 mt-3 mx-auto" >
+      <input type="text"  [(ngModel)]="filtro" class="form-control py-4"
       name="filtro" placeholder="digite o nome para filtrar" /> 
     </div>
   </div>
-  <div class="row ml-auto">
-    <div class="col-xs-12 col-sm-12 col-md-4" *ngFor="let celula of celulas | async | filtro:filtro">
-      <div class="card text-white bg-dark my-3" style="width: 20rem;" >
+  <div class="row ml-auto mt-3">
+    <div class="col-xs-12 col-sm-12 col-md-4" *ngFor="let celula of celulas$ | filtro:filtro">
+      <div class="card text-white bg-dark my-3 mx-auto" style="width: 20rem;" >
         <div class="card-header">
           <h5 class="card-title">
-            <span>{{celula.nome}} - </span>       
-            <span>{{celula.lider}}</span>
+            <span>{{celula.payload.val().nome}} - </span>       
+            <span>{{celula.payload.val().lider}}</span>
           </h5>
         </div>
         <div class="card-body">
             <div class="card-text">
               <ul>
-                  <li>Numero         {{celula.numero}}                            </li>
-                  <li>Dia Semana:     {{celula.diaSemana}}                        </li>
-                  <li>Horario:        {{celula.horario}}                          </li>
-                  <li>Endereço:       {{celula.endereco}}                         </li>
-                  <li>Anfitrião:      {{celula.anfitriao}}                        </li>
-                  <li>Data de Inicio: {{celula.dataInicio | date: 'dd/MM/yyyy'}}  </li>
+                  <li>Numero         {{celula.payload.val().numero}}                            </li>
+                  <li>Dia Semana:     {{celula.payload.val().diaSemana}}                        </li>
+                  <li>Horario:        {{celula.payload.val().horario}}                          </li>
+                  <li>Endereço:       {{celula.payload.val().endereco}}                         </li>
+                  <li>Anfitrião:      {{celula.payload.val().anfitriao}}                        </li>
+                  <li>Data de Inicio: {{celula.payload.val().dataInicio | date: 'dd/MM/yyyy'}}  </li>
               </ul>
           </div>
           <a class="btn btn-warning bt-md" (click)="edit(celula, celula.key)"  
@@ -40,3 +42,7 @@
   </div>
   
 </div>
+
+<ng-template #loading>  
+  <app-spinner> </app-spinner>
+</ng-template>

@@ -3,6 +3,7 @@ import { Celula } from '../celula';
 import { CelulaService } from '../celula.service';
 import { CelulaDataService } from '../celula-data.service';
 import { Observable } from 'rxjs'
+import { AngularFireAction } from '@angular/fire/database';
 
 
 @Component({
@@ -12,13 +13,13 @@ import { Observable } from 'rxjs'
 })
 export class ListCelulaComponent implements OnInit {
 
-  celulas : Observable<any>
+  celulas$ : Observable<AngularFireAction<firebase.database.DataSnapshot>[]>
   filtro : string|null
 
   constructor(private celulaService : CelulaService, private celulaDataService : CelulaDataService) { }
 
   ngOnInit() {
-    this.celulas  = this.celulaService.getAll()
+    this.celulas$  = this.celulaService.getAll()
   }
 
   delete(key : string){

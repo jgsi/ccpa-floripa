@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database'
+import { AngularFireDatabase, AngularFireAction } from '@angular/fire/database'
 import { Celula} from './celula'
 import {map } from 'rxjs/operators'
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -25,12 +26,8 @@ export class CelulaService {
     })
   }
 
-  getAll(){
-    return this.db.list('celula').snapshotChanges().pipe(
-      map(changes => {
-        return changes.map(c =>({ key : c.payload.key, ...c.payload.val() as {}}))
-      })
-    )
+  getAll() : Observable<AngularFireAction<firebase.database.DataSnapshot>[]>  {
+    return this.db.list('celula', ref => ref.orderByChild('numero')).snapshotChanges()
   }
 
   delete(key : String){

@@ -27,8 +27,8 @@
     </div>
    
     <div class="form-group">
-      <label>Data Menbresia</label>
-      <input type="date" class="form-control" [(ngModel)]="membro.dataMenbresia" name="dataMenbresia" />
+      <label>Data Membresia</label>
+      <input type="date" class="form-control" [(ngModel)]="membro.dataMembresia" name="dataMembresia" />
     </div>
    
     <div class="form-group">
@@ -36,6 +36,27 @@
       <input type="date" class="form-control" [(ngModel)]="membro.dataNascimento" name="dataNascimento" />
     </div>
     
+    <!-- <div class="form-group">
+      <label>Teste celula</label>
+      <input type="text" class="form-control"name="celula" />
+    </div> -->
+    
+    <div class="form-group">
+      <label>Célula</label>
+
+      <div class="input-group">
+        <select class="custom-select" [(ngModel)]="membro.celula"   name="celula" >
+          <option value="0" selected>Nenhuma</option>
+
+          <option  [(ngModel)]="membro.celula" value="{{celula.payload.val().numero}}" *ngFor="let celula of celulas$ | async ">{{celula.payload.val().nome}} Lider: {{celula.payload.val().lider }}</option>
+
+        </select>
+      </div>
+
+      
+
+    </div>
+
       <footer class="text-center">      
         <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
         <button type="button" (click)="list()" class="btn btn-danger btn-lg">Cancelar</button>
