@@ -1,14 +1,18 @@
 <div class="container-fluid  " >
   <div class="row ml-auto">
-    <div class="col-12 mt-3" >
+    <div class="col-4 mt-3" >
       <a class="btn btn-warning btn-lg text-center" (click)="new()" style="width: 20rem;"
           routerLink="/celula/new" routerLinkActive="active" >
         Cadastrar Nova Célula
       </a>  
     </div>
+    <div class="col-3 mt-3" >
+      <input type="text"  [(ngModel)]="filtro" class="form-control"
+      name="filtro" placeholder="digite o nome para filtrar" /> 
+    </div>
   </div>
   <div class="row ml-auto">
-    <div class="col-xs-12 col-sm-12 col-md-4" *ngFor="let celula of celulas | async">
+    <div class="col-xs-12 col-sm-12 col-md-4" *ngFor="let celula of celulas | async | filtro:filtro">
       <div class="card text-white bg-dark my-3" style="width: 20rem;" >
         <div class="card-header">
           <h5 class="card-title">
