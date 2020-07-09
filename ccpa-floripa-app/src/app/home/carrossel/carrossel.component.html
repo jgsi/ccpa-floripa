@@ -2,12 +2,12 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-      <img class="d-block w-100 img-fluid" height="auto" 
-        src="#" alt="First slide"
+      <img class="d-block w-100 img-fluid" height="80%" 
+        src=".\assets\ccpafloripabanner.jpg" alt="First slide"
         max-height="720px">
     </div>
     <div class="carousel-item" *ngFor="let imagem of imagens | async">
-      <img class="d-block w-100 img-fluid" src="{{imagem.url}}" height="auto" alt="Second slide"
+      <img class="d-block w-100 img-fluid" src="{{imagem.url}}" height="80%" alt="Second slide"
       max-height="720px">
     </div>
   </div>

@@ -31,7 +31,7 @@ export class ImagemService {
   get(key : string){
     return this.db.object(`imagem/${key}`)
   }
-
+ 
   getAll(){
     return this.db.list('imagem').snapshotChanges().pipe(
       map(changes => {
@@ -39,6 +39,7 @@ export class ImagemService {
       })
     )
   }
+
 
   delete(key : String){
     this.db.object(`imagem/${key}`).remove()
