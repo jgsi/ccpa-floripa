@@ -58,20 +58,25 @@
       </li>
       <li class="nav-item" *ngIf="!usuarioLogado()">
           <a href="#Login" class="nav-link" routerLink="/login" routerLinkActive="active" >
-              Login
+            <mat-icon aria-hidden="false" aria-label="Exlogin icon">login</mat-icon>
+            Entrar
           </a>
       </li>
 
   </ul>
-    <span class="navbar-text " *ngIf="usuarioLogado()" >
-      {{usuarioLogado()}} <img src={{getUserImg()}} alt="..." class="rounded-circle" style="width: 32px;">    
+  
+    <span class="navbar-text" *ngIf="usuarioLogado()" >
+        <a href="#Login" class="nav-link" routerLink="/login" routerLinkActive="active">
+            <span style="opacity: 45%;">
+                {{usuarioLogado()}} 
+            </span>
+            <img src={{getUserImg()}} alt="..." class="rounded-circle" style="width: 32px; opacity: 100%;">    
+        </a>
     </span>
   </div>
 
 
 </nav>
-
-
 
 <div >
   <!-- [@routeAnimation]="getAnimationData(routerOutlet)" -->

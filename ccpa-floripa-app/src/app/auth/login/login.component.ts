@@ -11,24 +11,44 @@ import { AuthService }      from '../auth.service';
 export class LoginComponent {
   message: string;
 
+  logado: boolean = false;
+
   constructor(public authService: AuthService, public router: Router) {
     this.setMessage();
   }
 
+  usuarioLogado(){
+    try{
+      if(this.authService.isLoggedIn){
+        var user = this.authService.isLoggedIn ? '    '+ this.authService.userData.displayName : ''
+        this.logado = true
+      }else{
+        this.logado = false
+      }
+    } catch (error){
+      this.logado = false
+      // console.error(error)
+    }
+  }
+
   setMessage() {
     this.message = 'Entrou ' + (this.authService.isLoggedIn ? 'como ' +this.authService.userData.displayName : 'out') ;
+    this.usuarioLogado()
   }
 
   login() {
     this.message = 'Fazendo login ...';
-
   }
 
   getUserImg(){
-    return this.authService.userData.photoURL;
+    if(this.logado){
+      return this.authService.userData.photoURL;
+    }
   }
 
   logout() {
+    this.authService.SignOut();
+    this.logado = false
   }
 }
 

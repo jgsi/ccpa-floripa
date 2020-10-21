@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { JsonPipe } from '@angular/common';
 import { Imagem } from './imagem';
 import { Audios } from './audios';
+import { AuthService } from '../auth/auth.service';
 //import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -26,9 +27,10 @@ export class GaleriasComponent implements OnInit {
   url: string
   key: string;
   nome: string;
-  
 
-  constructor(private imageService : ImagemService,private audioService : AudiosService, private  afStorage: AngularFireStorage) { }
+  logado: boolean = false;
+
+  constructor(public authService: AuthService,private imageService : ImagemService,private audioService : AudiosService, private  afStorage: AngularFireStorage) { }
 
   ngOnInit() {
     this.imagens = this.imageService.getAll()
@@ -46,8 +48,23 @@ export class GaleriasComponent implements OnInit {
     
     // this.imageService.getAll()
     //console.log(this.imageService.getAll())
+    this.usuarioLogado()
   }
 
+
+  usuarioLogado(){
+    try{
+      if(this.authService.isLoggedIn){
+        var user = this.authService.isLoggedIn ? '    '+ this.authService.userData.displayName : ''
+        this.logado = true
+      }else{
+        this.logado = false
+      }
+    } catch (error){
+      this.logado = false
+      // console.error(error)
+    }
+  }
 
   enviarImg(evento){
 

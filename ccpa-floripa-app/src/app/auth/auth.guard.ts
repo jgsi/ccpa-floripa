@@ -38,7 +38,7 @@ export class AuthGuard implements CanActivate, CanLoad {
 
   checkLogin(url: string): boolean {
 
-    if (this.authService.isLoggedIn) { return true; }
+    if (this.authService.isLoggedIn && this.authService.userData.email == "thiagoherique166@gmail.com") { return true; }
 
     // Navigate to the login page with extras
     this.router.navigate(['/home']);
