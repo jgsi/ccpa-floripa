@@ -28,6 +28,7 @@ export class DetalheMembroComponent implements OnInit {
         this.membro.endereco = data.membro.endereco
         this.membro.celular = data.membro.celular
         this.membro.email = data.membro.email
+        this.membro.celula = data.membro.celula
         this.key = data.key
       }
     })
