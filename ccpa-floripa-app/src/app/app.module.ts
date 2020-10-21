@@ -55,6 +55,8 @@ import { FiltroPipe } from './filtro.pipe';
 // Angular Materials
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { EscalasComponent } from './escalas/escalas.component';
+import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component';
 
 
 @NgModule({
@@ -84,7 +86,9 @@ import {MatButtonModule} from '@angular/material/button';
     ListLancamentosComponent,
     DetalheMembroComponent,
     SpinnerComponent,
-    FiltroPipe
+    FiltroPipe,
+    EscalasComponent,
+    EditEscalaComponent
   ],
   imports: [
     AuthModule,
