@@ -1,25 +1,23 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Escalas</h1>
-      
-          <div class="input-group my-4 mx-4">
+<div class="container">
+  <h1 class="display-4 text-centercc">Escalas</h1>
+  
+      <div class="input-group my-4 mx-4">
 
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
-            </div>
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+        </div>
 
-            <select class="custom-select"  [(ngModel)]="filtro" id="inputGroupSelect01" name="filtro">
-              <option *ngFor="let departamento of departamentos$ |async" 
-              value="{{departamento.payload.val().nome}}">
-               {{departamento.payload.val().nome}}
-              </option>
-            </select>
-          </div>
+        <select class="custom-select"  [(ngModel)]="filtro" id="inputGroupSelect01" name="filtro">
+          <option *ngFor="let departamento of departamentos$ |async" 
+          value="{{departamento.payload.val().nome}}">
+            {{departamento.payload.val().nome}}
+          </option>
+        </select>
+      </div>
 
 
-          <a class="btn btn-warning mx-4 my-4" (click)="new()" routerLink="/escalas/new" routerLinkActive="active" >Cadastrar Escala</a>
-    </div>
-  </div>
+      <a class="btn btn-warning mx-4 my-4" (click)="new()" routerLink="/escalas/new" routerLinkActive="active" >Cadastrar Escala</a>
+</div>
 
   <div class="mx-3 my-3" *ngIf="escalas$ | async; let escalas$ ; else loading" >
     <table class="table table-hover">
