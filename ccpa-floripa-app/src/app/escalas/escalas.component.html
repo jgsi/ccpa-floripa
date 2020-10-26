@@ -8,9 +8,9 @@
               <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
             </div>
 
-            <select class="custom-select"  [(ngModel)]="escala.departamento" id="inputGroupSelect01">
+            <select class="custom-select"  [(ngModel)]="filtro" id="inputGroupSelect01" name="filtro">
               <option *ngFor="let departamento of departamentos$ |async" 
-              value="{{departamento.payload.val()}}">
+              value="{{departamento.payload.val().nome}}">
                {{departamento.payload.val().nome}}
               </option>
             </select>
@@ -21,3 +21,38 @@
     </div>
   </div>
 
+  <div class="mx-3 my-3" *ngIf="escalas$ | async; let escalas$ ; else loading" >
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="3"> 
+            <h3 class="text-center">Lista de Escalas</h3>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">Departamento</th>
+          <th scope="col">Dia</th>
+          <th scope="col">Nomes</th>
+        </tr>
+      </thead>
+      <tbody>    
+        <tr *ngFor="let escala of escalas$ | filtro:filtro" (click)="edit(escala.payload.val(), escala.payload.key)" 
+             style="cursor: pointer;" [routerLink]="['/escalas', escala.id]" routerLinkActive="active" >
+          <td>{{escala.payload.val().departamento.nome}}</td>
+          <td>{{escala.payload.val().dia | date: 'EEEE, dd/MM/yyyy '}}</td>
+          <td><p *ngFor="let nome of escala.payload.val().nomes" >{{nome}}</p></td> 
+        </tr>
+        <tr *ngIf="escalas$.length == 0">
+          <td>Nenhuma escala encontrada.</td>
+  
+        </tr>
+      </tbody>
+      
+    </table>
+  </div>
+  
+  <ng-template #loading>  
+      <app-spinner> </app-spinner>
+  </ng-template>
+  
+    
