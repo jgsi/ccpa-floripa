@@ -1,1 +1,36 @@
-<p>list-departamento works!</p>
+<div class="mx-3 my-3" *ngIf="departamentos$ | async; let departamentos$; else loading" >
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2"> 
+            <h3 class="text-center">Lista de Departamentos</h3>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Lider</th>
+        </tr>
+      </thead>
+      <tbody>    
+        <tr *ngFor="let departamento of departamentos$" (click)="edit(departamento.payload.val(), departamento.payload.key)" 
+             style="cursor: pointer;">
+          <td>{{departamento.payload.val().nome}}</td>
+          <td>{{departamento.payload.val().lider}}</td>
+        </tr>
+        <tr *ngIf="departamentos$.length == 0">
+          <td>Nenhum departamento encontrado.</td>
+  
+        </tr>
+      </tbody>
+      <tfoot >
+        <th colspan="2" ><a class="btn btn-warning" (click)="new()" routerLink="/departamentos/new" routerLinkActive="active" >Cadastrar Novo Departamento</a></th>
+      </tfoot>
+      
+    </table>
+  </div>
+  
+  <ng-template #loading>  
+      <app-spinner> </app-spinner>
+  </ng-template>
+  
+  

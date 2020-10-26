@@ -55,6 +55,13 @@ import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FiltroPipe } from './filtro.pipe';
 
+// Angular Materials
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { EscalasComponent } from './escalas/escalas.component';
+import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +89,9 @@ import { FiltroPipe } from './filtro.pipe';
     ListLancamentosComponent,
     DetalheMembroComponent,
     SpinnerComponent,
-    FiltroPipe
+    FiltroPipe,
+    EscalasComponent,
+    EditEscalaComponent
   ],
   imports: [
     AuthModule,
@@ -97,7 +106,12 @@ import { FiltroPipe } from './filtro.pipe';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+<<<<<<< HEAD
     ReactiveFormsModule
+=======
+    MatIconModule,
+    MatButtonModule
+>>>>>>> 27213c7958f3523152def54cb926f1f6932fbeb9
   ],
   providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]

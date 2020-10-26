@@ -52,7 +52,7 @@
 <div class="tab-content" id="myTabContent">
 
 <!-- Tabs  -->
-  <div class="tab-pane fade show active" id="imagens" role="tabpanel" aria-labelledby="imagens-tab">
+  <div *ngIf="logado" class="tab-pane fade show active" id="imagens" role="tabpanel" aria-labelledby="imagens-tab">
       <div class="jumbotron jumbotron-fluid mt-3 mx-3">
         <div class="container" style="text-align: center;">
       
@@ -78,7 +78,7 @@
             <div class="card-body">
               <h5 class="card-title">{{imagem.nome}}</h5>
               <p class="card-text">{{imagem.tamanho}} mb</p>
-              <button type="button" (click)="comfirm(imagem.key, imagem.nome)" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalDelete">
+              <button *ngIf="logado" type="button" (click)="comfirm(imagem.key, imagem.nome)" class="btn btn-danger bt-md" data-toggle="modal" data-target="#modalDelete">
                 Excluir
               </button>
             </div>

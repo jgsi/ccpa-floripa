@@ -21,6 +21,10 @@ import { GaleriasComponent } from './galerias/galerias.component';
 import { ListLancamentosComponent } from './lancamentos/list-lancamentos/list-lancamentos.component';
 import { EditLancamentoComponent } from './lancamentos/edit-lancamento/edit-lancamento.component';
 import { DetalheMembroComponent } from './membros/detalhe-membro/detalhe-membro.component';
+import { EscalasComponent } from './escalas/escalas.component';
+import { ListDepartamentoComponent } from './departamentos/list-departamento/list-departamento.component';
+import { EditDepartamentoComponent } from './departamentos/edit-departamento/edit-departamento.component';
+import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component';
 
 
 const routes: Routes = [
@@ -39,6 +43,11 @@ const routes: Routes = [
   { path: 'membro/detail' , component: DetalheMembroComponent, canActivate:[AuthGuard]},
   { path: 'membro/:id' , component: EditMembroComponent, canActivate:[AuthGuard]},
   { path: 'galeria' , component: GaleriasComponent, canActivate:[AuthGuard]},
+  { path: 'escalas' , component: EscalasComponent},
+  { path: 'escalas/new' , component: EditEscalaComponent},
+  { path: 'departamentos' , component: ListDepartamentoComponent},
+  { path: 'departamentos/new' , component: EditDepartamentoComponent, canActivate:[AuthGuard]},
+  { path: 'departamentos/:id' , component: EditDepartamentoComponent, canActivate:[AuthGuard]},
   { path: '' , 
   redirectTo: 'home',
   pathMatch: 'full'},
