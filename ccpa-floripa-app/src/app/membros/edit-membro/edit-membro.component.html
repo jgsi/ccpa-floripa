@@ -8,22 +8,22 @@
    
     <div class="form-group">
       <label>Celular</label>
-      <input type="tel" class="form-control" [(ngModel)]="membro.celular" name="celular" />
+      <input type="tel" class="form-control" [(ngModel)]="membro.celular" name="celular" required/>
     </div>
    
     <div class="form-group">
       <label>Endereço</label>
-      <input type="text" class="form-control" [(ngModel)]="membro.endereco" name="endereco" />
+      <input type="text" class="form-control" [(ngModel)]="membro.endereco" name="endereco" required/>
     </div>
    
     <div class="form-group">
       <label>E-mail</label>
-      <input type="text" class="form-control" [(ngModel)]="membro.email" name="email" />
+      <input type="text" class="form-control" [(ngModel)]="membro.email" name="email" required/>
     </div>
    
     <div class="form-group">
       <label>Sexo</label>
-      <input type="text" class="form-control" [(ngModel)]="membro.sexo" name="sexo" />
+      <input type="text" class="form-control" [(ngModel)]="membro.sexo" name="sexo" required/>
     </div>
    
     <div class="form-group">
@@ -33,7 +33,7 @@
    
     <div class="form-group">
       <label>Data de Nascimento</label>
-      <input type="date" class="form-control" [(ngModel)]="membro.dataNascimento" name="dataNascimento" />
+      <input type="date" class="form-control" [(ngModel)]="membro.dataNascimento" name="dataNascimento" required />
     </div>
     
     <!-- <div class="form-group">
@@ -45,7 +45,7 @@
       <label>Célula</label>
 
       <div class="input-group">
-        <select class="custom-select" [(ngModel)]="membro.celula"   name="celula" >
+        <select class="custom-select" [(ngModel)]="membro.celula"   name="celula" required>
           <option value="0" selected>Nenhuma</option>
           <option *ngFor="let celula of celulas$ |async" value="{{celula.payload.val().numero}}" [selected]="celula.payload.val().numero==membro.celula" >
             {{celula.payload.val().nome}} Lider: {{celula.payload.val().lider }}

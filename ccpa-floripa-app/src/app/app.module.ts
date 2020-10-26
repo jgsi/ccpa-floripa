@@ -5,6 +5,9 @@ import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 registerLocaleData(ptBr)
 
+// Importando o módulo de formulários reativos do angular
+import { ReactiveFormsModule } from '@angular/forms';
+
 // Auth service
 import { AuthService } from "./auth/auth.service";
 
@@ -94,6 +97,7 @@ import { FiltroPipe } from './filtro.pipe';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
