@@ -106,12 +106,9 @@ import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-<<<<<<< HEAD
-    ReactiveFormsModule
-=======
     MatIconModule,
+    ReactiveFormsModule,
     MatButtonModule
->>>>>>> 27213c7958f3523152def54cb926f1f6932fbeb9
   ],
   providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
