@@ -16,8 +16,8 @@
       </div>
 
 
-      <a class="btn btn-warning mx-4 my-4" (click)="new()" routerLink="/escalas/new" routerLinkActive="active" >Cadastrar Escala</a>
-</div>
+          <a *ngIf="usuarioLogado()" class="btn btn-warning mx-4 my-4" (click)="new()" routerLink="/escalas/new" routerLinkActive="active" >Cadastrar Escala</a>
+    </div>
 
   <div class="mx-3 my-3" *ngIf="escalas$ | async; let escalas$ ; else loading" >
     <table class="table table-hover table-striped">
