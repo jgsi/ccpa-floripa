@@ -15,14 +15,17 @@ import { EscalaService } from './escala.service';
 export class EscalasComponent implements OnInit {
 
   departamentos$ : Observable<AngularFireAction<firebase.database.DataSnapshot>[]>
+  escalas$ : Observable<AngularFireAction<firebase.database.DataSnapshot>[]>
   escala : Escala
   key : string = ''
+  filtro : string
 
   constructor(private authService : AuthService,private departamentoService : DepartamentoService, private escalaService: EscalaService,private escalaDataService: EscalaDataService) {}
 
   ngOnInit() {
     this.escala = new Escala()
     this.departamentos$ = this.departamentoService.getAll();
+    this.escalas$ = this.escalaService.getAll();
   }
 
   usuarioLogado(){
@@ -37,4 +40,13 @@ export class EscalasComponent implements OnInit {
   new(){
     this.escalaDataService.changeEscala(new Escala(), '')
   }
+
+  delete(key : string){
+    this.escalaService.delete(key)
+  }
+
+  edit(escala : Escala, key : string){
+    this.escalaDataService.changeEscala(escala,key)
+  }
+
 }

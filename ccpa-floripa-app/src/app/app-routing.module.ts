@@ -45,6 +45,7 @@ const routes: Routes = [
   { path: 'galeria' , component: GaleriasComponent, canActivate:[AuthGuard]},
   { path: 'escalas' , component: EscalasComponent},
   { path: 'escalas/new' , component: EditEscalaComponent},
+  { path: 'escalas/:id' , component: EditEscalaComponent},
   { path: 'departamentos' , component: ListDepartamentoComponent},
   { path: 'departamentos/new' , component: EditDepartamentoComponent, canActivate:[AuthGuard]},
   { path: 'departamentos/:id' , component: EditDepartamentoComponent, canActivate:[AuthGuard]},
