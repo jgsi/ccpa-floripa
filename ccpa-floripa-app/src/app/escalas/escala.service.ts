@@ -25,7 +25,7 @@ export class EscalaService {
   }
 
   getAll() : Observable<AngularFireAction<firebase.database.DataSnapshot>[]> {
-    return this.db.list('escala', ref => ref.orderByChild('dia')).snapshotChanges()    
+    return this.db.list<Escala>('escala', ref => ref.orderByChild('dia')).snapshotChanges()    
   }
 
 

@@ -16,9 +16,10 @@ export class Escalas2DataSource extends DataSource<Escala> {
   
   constructor(private escalaService : EscalaService) {
     super();
+
   }
   
-  data : Observable<AngularFireAction<firebase.database.DataSnapshot>[]> = this.escalaService.getAll();
+  data : Observable<Escala[]>;
   paginator: MatPaginator;
   sort: MatSort;
 
