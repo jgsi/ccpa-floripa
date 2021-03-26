@@ -60,10 +60,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { EscalasComponent } from './escalas/escalas.component';
 import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component';
-import { Escalas2Component } from './escalas2/escalas2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { EscalasTbComponent } from './escalas/escalas-tb/escalas-tb.component';
 
 
 @NgModule({
@@ -96,7 +96,7 @@ import { MatSortModule } from '@angular/material/sort';
     FiltroPipe,
     EscalasComponent,
     EditEscalaComponent,
-    Escalas2Component
+    EscalasTbComponent
   ],
   imports: [
     AuthModule,
