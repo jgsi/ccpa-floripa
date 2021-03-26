@@ -60,6 +60,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { EscalasComponent } from './escalas/escalas.component';
 import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component';
+import { Escalas2Component } from './escalas2/escalas2.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -91,7 +95,8 @@ import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component
     SpinnerComponent,
     FiltroPipe,
     EscalasComponent,
-    EditEscalaComponent
+    EditEscalaComponent,
+    Escalas2Component
   ],
   imports: [
     AuthModule,
@@ -108,7 +113,10 @@ import { EditEscalaComponent } from './escalas/edit-escala/edit-escala.component
     AngularFireStorageModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [AuthService, AuthGuard, {provide:LOCALE_ID, useValue:'pt'}],
   bootstrap: [AppComponent]
