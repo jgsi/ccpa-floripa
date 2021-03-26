@@ -17,9 +17,11 @@
 
 
           <a *ngIf="usuarioLogado()" class="btn btn-warning mx-4 my-4" (click)="new()" routerLink="/escalas/new" routerLinkActive="active" >Cadastrar Escala</a>
+          <app-escalas-tb> </app-escalas-tb>
     </div>
 
-  <div class="mx-3 my-3" *ngIf="escalas$ | async; let escalas$ ; else loading" >
+      
+  <!-- <div class="mx-3 my-3" *ngIf="escalas$ | async; let escalas$ ; else loading" >
     <table class="table table-hover table-striped">
       <thead>
         <tr>
@@ -44,8 +46,8 @@
         </tr>
       </tbody>
       
-    </table>
-  </div>
+    </table> -->
+  <!-- </div> -->
   
   <ng-template #loading>  
       <app-spinner> </app-spinner>
