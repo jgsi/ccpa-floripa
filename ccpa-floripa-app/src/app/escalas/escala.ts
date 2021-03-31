@@ -1,7 +1,7 @@
 import { Departamento } from '../departamentos/departamento';
 
 export class Escala {
-    departamento: Departamento
+    departamento?: Departamento
     dia: Date
     nomes: string[]
 }

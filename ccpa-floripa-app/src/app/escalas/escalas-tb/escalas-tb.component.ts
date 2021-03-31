@@ -5,6 +5,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Escala } from '../escala';
 import { EscalaDataService } from '../escala-data.service';
 import { EscalaService } from '../escala.service';
+import { EscalasTbDataSource } from './escalas-tb-datasource';
 
 @Component({
   selector: 'app-escalas-tb',
@@ -15,26 +16,21 @@ export class EscalasTbComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Escala>;
-  dataSource: MatTableDataSource<any>
+  dataSource: EscalasTbDataSource
 
   constructor(private escalaService: EscalaService, private escalaDataService: EscalaDataService) {
     
   }
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['nomes', 'dia'];
+  displayedColumns = ['nomes', 'dia' , 'departamento'];
 
   ngOnInit() {
+    this.dataSource = new EscalasTbDataSource();
   }
 
-  ngAfterViewInit() {
-    this.escalaService.getAll().subscribe(data => {
-      // console.log('dados', data)
-      this.dataSource = new MatTableDataSource(data); 
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
-    })
+  ngAfterViewInit() {}
+    
 
-  }
+
 }

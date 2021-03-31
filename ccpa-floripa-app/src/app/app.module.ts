@@ -64,6 +64,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { EscalasTbComponent } from './escalas/escalas-tb/escalas-tb.component';
+import { TestetabelaComponent } from './testetabela/testetabela.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { EscalasTbComponent } from './escalas/escalas-tb/escalas-tb.component';
     FiltroPipe,
     EscalasComponent,
     EditEscalaComponent,
-    EscalasTbComponent
+    EscalasTbComponent,
+    TestetabelaComponent
   ],
   imports: [
     AuthModule,
