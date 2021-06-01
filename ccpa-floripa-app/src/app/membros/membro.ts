@@ -1,11 +1,7 @@
-export class Membro {
+import { Pessoa } from "../pessoas/pessoa"
 
-    nome: string 
-    dataNascimento: Date
+export class Membro extends Pessoa {
+
     dataMembresia: Date
-    sexo: string 
-    celular: string 
-    endereco: string
-    email: string 
     celula: any
 }
