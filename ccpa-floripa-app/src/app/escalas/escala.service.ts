@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireAction } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Escala } from './escala';
 
 @Injectable({
@@ -25,12 +24,8 @@ export class EscalaService {
     })
   }
 
-  getAll() : Observable<any> {
-    return this.db.list<Escala>('escala', ref => ref).snapshotChanges().pipe(
-      map(changes => {
-        return  changes.map(change => ({key: change.payload.key, ...change.payload.val() }))
-      })
-    )    
+  getAll() : Observable<AngularFireAction<firebase.database.DataSnapshot>[]> {
+    return this.db.list<Escala>('escala', ref => ref.orderByChild('dia')).snapshotChanges()    
   }
 
 
